@@ -4,7 +4,7 @@ WORKDIR /app
 COPY frontend/dist/* ./build/
 
 RUN mkdir ./api
-COPY backend ./api/
+COPY backend/ ./api/
 
 RUN pip install -r ./api/requirements.txt
 
