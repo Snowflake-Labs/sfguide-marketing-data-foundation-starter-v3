@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.container {
+    width: 32px;
+    min-width: 32px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    color: $color-secondary;
+
+    &.varchar {
+        background-color: $column-type-varchar;
+    }
+
+    &.number {
+        background-color: $column-type-number;
+    }
+
+    &.boolean {
+        background-color: $column-type-boolean;
+    }
+
+    &.variant {
+        background-color: $column-type-variant;
+    }
+
+    &.date {
+        background-color: $column-type-date;
+    }
+
+    &.null {
+        background-color: $column-type-null;
+    }
+
+    &.formula {
+        background-color: $mapping-type-formula;
+    }
+
+}

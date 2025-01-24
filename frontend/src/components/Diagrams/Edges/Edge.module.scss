@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+
+.edgeChip {
+    background-color: $chips-color;
+
+    &.iconButton {
+
+        &:hover {
+            background-color: $chips-hover-color;
+        }
+    }
+}

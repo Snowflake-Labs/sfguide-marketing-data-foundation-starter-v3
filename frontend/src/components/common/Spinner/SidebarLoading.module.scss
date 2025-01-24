@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+.loadingContainer {
+  border: 3px solid $color-secondary;
+  border-top-color: $sb-color;
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

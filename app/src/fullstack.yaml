@@ -1,0 +1,19 @@
+spec:
+  containers:
+    - name: eap-frontend
+      image: <image_repo_short_path>eap_frontend
+      env:
+        BACKEND_HOST: 127.0.0.01:8081  
+    - name: eap-backend
+      image: <image_repo_short_path>eap_backend
+    - name: eap-router
+      image: <image_repo_short_path>eap_router
+      env:
+        SNOWFLAKE_WAREHOUSE: <eap_warehouse>
+        RELEASE: True
+        FE_SERVER: 127.0.0.1:8080
+        BE_SERVER: 127.0.0.1:8081
+  endpoint:
+    - name: app
+      port: 8000
+      public: true
