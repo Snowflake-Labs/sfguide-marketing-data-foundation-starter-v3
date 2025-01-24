@@ -12,7 +12,8 @@ def upload_files_stage(sp_session, database: str, schema: str, stage: str, app_d
             if not file.startswith('.') and not is_ignore(path):
                 # build the relative paths to the file
                 local_file = os.path.join(path, file)
-                replace_path = os.path.join('.', app_dir.replace('./', ''))
+                replace_path = os.path.join(
+                    '../../../../Downloads/marketing-data-foundation-starter-v-3-spcs-main 2/solution/scripts', app_dir.replace('./', ''))
 
                 # build the path to where the file will be staged
                 stage_dir = path.replace(replace_path,'')
