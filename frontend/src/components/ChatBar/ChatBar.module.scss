@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.sendMessage {
+  width: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 12px;
+  height: 40px;
+  position: relative;
+  border-radius: 8px;
+  background-color: $chatbar-background;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 48px;
+  margin-right: 100px;
+
+  input::placeholder {
+    color: $chatbar-label;
+    opacity: 1;
+  }
+}
+
+.sendIcon {
+  color: $chatbar-icon;
+  width: 24px;
+  height: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.input {
+  padding-left: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: stretch;
+}

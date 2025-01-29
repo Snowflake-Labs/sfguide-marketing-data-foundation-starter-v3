@@ -1,0 +1,29 @@
+.searchContainer {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-end;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+.graphContainer {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+}
+.tableContainer > * + * {
+    margin: 0 20px 20px 20px;
+  }
+
+.tableContainer {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}

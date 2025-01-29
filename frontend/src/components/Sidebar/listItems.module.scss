@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.button:hover {
+    background-color :$hover-background;
+    color: $color-white;
+    svg{
+        color: $color-white;
+    }
+}

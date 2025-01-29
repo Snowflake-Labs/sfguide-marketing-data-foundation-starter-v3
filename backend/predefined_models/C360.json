@@ -1,0 +1,1866 @@
+{
+    "databases": [
+      {
+        "databaseName": "<TARGET_DATABASE>",
+        "schemas": [
+          {
+            "databaseName": "<TARGET_DATABASE>",
+            "schemaName": "TARGET",
+            "tables": [
+              {
+                "alias": "C3601",
+                "columns": [
+                  {
+                    "columnName": "CAMPAIGN_PARTNER",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EMPLOYEE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "RESPONSE_COUNTRY",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_COUNTRY",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "LAT",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "LNG",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "USER_PSEUDO_ID",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_LTV_REVENUE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "EVENT_DATE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "DATE",
+                    "type": "DATE"
+                  },
+                  {
+                    "columnName": "VALUE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "EVENT_PARAMS_UTMS",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "STATUS",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_CATEGORY",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "UTM_SOURCE",
+                    "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                    "sqlType": "VARCHAR",
+                    "type": "VARCHAR"
+                  }
+                ],
+                "databaseName": "<TARGET_DATABASE>",
+                "mappings": [
+                  {
+                    "mapping": "CUS01.LNG",
+                    "sources": [
+                      {
+                        "columnName": "LNG",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "LNG",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.LAT",
+                    "sources": [
+                      {
+                        "columnName": "LAT",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "LAT",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.EMPLOYEE",
+                    "sources": [
+                      {
+                        "columnName": "EMPLOYEE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EMPLOYEE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.CAMPAIGN_PARTNER",
+                    "sources": [
+                      {
+                        "columnName": "CAMPAIGN_PARTNER",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "CAMPAIGN_PARTNER",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                    "sources": [
+                      {
+                        "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.RESPONSE_COUNTRY",
+                    "sources": [
+                      {
+                        "columnName": "RESPONSE_COUNTRY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "RESPONSE_COUNTRY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.GEO_COUNTRY",
+                    "sources": [
+                      {
+                        "columnName": "GEO_COUNTRY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "GEO_COUNTRY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.USER_PSEUDO_ID",
+                    "sources": [
+                      {
+                        "columnName": "USER_PSEUDO_ID",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "USER_PSEUDO_ID",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_NAME",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_NAME",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_NAME",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.USER_LTV_REVENUE",
+                    "sources": [
+                      {
+                        "columnName": "USER_LTV_REVENUE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "USER_LTV_REVENUE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_DATE",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_DATE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_DATE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.VALUE",
+                    "sources": [
+                      {
+                        "columnName": "VALUE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "VALUE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_PARAMS_UTMS",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_PARAMS_UTMS",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_PARAMS_UTMS",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_WEB_INFO_BROWSER",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_WEB_INFO_BROWSER",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_WEB_INFO_BROWSER",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_WEB_INFO_BROWSER_VERSION",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.STATUS",
+                    "sources": [
+                      {
+                        "columnName": "STATUS",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "STATUS",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_CATEGORY",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_CATEGORY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_CATEGORY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.UTM_SOURCE",
+                    "sources": [
+                      {
+                        "columnName": "UTM_SOURCE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "UTM_SOURCE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  }
+                ],
+                "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                "schemaName": "TARGET",
+                "tableName": "C360_CLICKS_CRM_JOINED_VW",
+                "type": "target"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+        "schemas": [
+          {
+            "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+            "schemaName": "DEMO",
+            "tables": [
+              {
+                "alias": "CUS01",
+                "columns": [
+                  {
+                    "columnName": "STREAM_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ISO3",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TRANSACTION_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_COUNTRY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_ADS_STORAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TAX_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_PARAMS_UTMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "USER_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_CATEGORY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_IS_LIMITED_AD_TRACKING",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "BOOLEAN",
+                    "type": "BOOLEAN"
+                  },
+                  {
+                    "columnName": "VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_UNIQUE_ITEMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "UTM_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "UTM_CAMPAIGN",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ADMIN_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_MEDIUM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_PROPERTIES",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_DCLID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_TERM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_CITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "LNG",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "FLOAT",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "GEO_METRO",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_LTV_REVENUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_MODEL_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_REGION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_BROWSER",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PLATFORM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_DIMENSIONS_HOSTNAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SEQ",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "DEVICE_OPERATING_SYSTEM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_BROWSER_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CITY_ASCII",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "PATH",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_SUB_CONTINENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_SRSLTID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_MEDIUM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "LAT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "FLOAT",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TOTAL_ITEM_QUANTITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_PURCHASE_REVENUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_LANGUAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_HOSTNAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "POPULATION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_REFUND_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_OPERATING_SYSTEM_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ITEMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "UTM_AD_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_USES_TRANSIENT_TOKEN",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "BOOLEAN",
+                    "type": "BOOLEAN"
+                  },
+                  {
+                    "columnName": "EVENT_SERVER_TIMESTAMP_OFFSET",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_TIME_ZONE_OFFSET_SECONDS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_DATE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "DATE",
+                    "type": "DATE"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_ANALYTICS_STORAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_GCLID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ISO2",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_BUNDLE_SEQUENCE_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "APP_INFO_INSTALL_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_SHIPPING_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_LTV_CURRENCY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "KEY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_PURCHASE_REVENUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "INDEX",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_OS_HARDWARE_MODEL",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "THIS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "APP_INFO_FIREBASE_APP_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_INSTALL_STORE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_BRAND_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "UTM_AD_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CONTENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_VENDOR_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CAPITAL",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_SHIPPING_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_REFUND_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TAX_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_PREVIOUS_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_CONTINENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "QUERY_PARAMETERS_UTMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "COUNTRY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_FIRST_TOUCH_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_MARKETING_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_ADVERTISING_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_PSEUDO_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  }
+                ],
+                "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+                "joins": [
+                  {
+                    "from": {
+                      "alias": "SAL02",
+                      "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+                      "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                      "schemaName": "DEMO",
+                      "tableName": "SALESFORCE_RAW_DATA"
+                    },
+                    "on": "SPLIT_PART(SPLIT_PART(SAL02.QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&',0) = CUS01.UTM_SOURCE AND  SPLIT_PART(SPLIT_PART(SPLIT_PART(SAL02.QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&utm_medium=',2), '&', 1) = CUS01.UTM_MEDIUM AND  SPLIT_PART(SPLIT_PART(SAL02.QUERY_PARAMETERS_UTMS, '&utm_campaign=', 2),'&',0) = CUS01.UTM_CAMPAIGN AND  length(trim(SPLIT_PART(SPLIT_PART(SAL02.QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&',0))) > 0",
+                    "target": {
+                      "alias": "C3601",
+                      "databaseName": "<TARGET_DATABASE>",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW",
+                      "schemaName": "TARGET",
+                      "tableName": "C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "to": {
+                      "alias": "CUS01",
+                      "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+                      "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                      "schemaName": "DEMO",
+                      "tableName": "CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                    },
+                    "type": "INNER"
+                  }
+                ],
+                "mappings": [
+                  {
+                    "mapping": "CUS01.LNG",
+                    "sources": [
+                      {
+                        "columnName": "LNG",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "LNG",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.LAT",
+                    "sources": [
+                      {
+                        "columnName": "LAT",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "LAT",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.GEO_COUNTRY",
+                    "sources": [
+                      {
+                        "columnName": "GEO_COUNTRY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "GEO_COUNTRY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.USER_PSEUDO_ID",
+                    "sources": [
+                      {
+                        "columnName": "USER_PSEUDO_ID",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "USER_PSEUDO_ID",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_NAME",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_NAME",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_NAME",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.USER_LTV_REVENUE",
+                    "sources": [
+                      {
+                        "columnName": "USER_LTV_REVENUE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "USER_LTV_REVENUE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_DATE",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_DATE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_DATE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.VALUE",
+                    "sources": [
+                      {
+                        "columnName": "VALUE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "VALUE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.EVENT_PARAMS_UTMS",
+                    "sources": [
+                      {
+                        "columnName": "EVENT_PARAMS_UTMS",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EVENT_PARAMS_UTMS",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_WEB_INFO_BROWSER",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_WEB_INFO_BROWSER",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_WEB_INFO_BROWSER",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_WEB_INFO_BROWSER_VERSION",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.DEVICE_CATEGORY",
+                    "sources": [
+                      {
+                        "columnName": "DEVICE_CATEGORY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "DEVICE_CATEGORY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "CUS01.UTM_SOURCE",
+                    "sources": [
+                      {
+                        "columnName": "UTM_SOURCE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "UTM_SOURCE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  }
+                ],
+                "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                "schemaName": "DEMO",
+                "tableName": "CUSTOMER72_GA_LAT_LONG_UTMS_VW",
+                "type": "source"
+              },
+              {
+                "alias": "SAL02",
+                "columns": [
+                  {
+                    "columnName": "QUERY_PARAMETERS_UTMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "RESPONSE_COUNTRY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EMPLOYEE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "FIRST_RESPONDED_DATE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_CAMPAIGN_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_ACCOUNT_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "RESPONSE_GEO",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "HAS_RESPONDED",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_CAMPAIGN_MEMBER_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_PERSON_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_ACCOUNT_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "STATUS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "FIRST_ASSOCIATED_DATE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CAMPAIGN_PARTNER",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "SALESFORCE_PERSON_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  }
+                ],
+                "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+                "mappings": [
+                  {
+                    "mapping": "SAL02.EMPLOYEE",
+                    "sources": [
+                      {
+                        "columnName": "EMPLOYEE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "EMPLOYEE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.CAMPAIGN_PARTNER",
+                    "sources": [
+                      {
+                        "columnName": "CAMPAIGN_PARTNER",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "CAMPAIGN_PARTNER",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                    "sources": [
+                      {
+                        "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "CAMPAIGN_PARTNER_OR_EMPLOYEE",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.RESPONSE_COUNTRY",
+                    "sources": [
+                      {
+                        "columnName": "RESPONSE_COUNTRY",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "RESPONSE_COUNTRY",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  },
+                  {
+                    "mapping": "SAL02.STATUS",
+                    "sources": [
+                      {
+                        "columnName": "STATUS",
+                        "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA"
+                      }
+                    ],
+                    "target": {
+                      "columnName": "STATUS",
+                      "object": "<TARGET_DATABASE>.TARGET.C360_CLICKS_CRM_JOINED_VW"
+                    },
+                    "type": "column"
+                  }
+                ],
+                "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.SALESFORCE_RAW_DATA",
+                "schemaName": "DEMO",
+                "tableName": "SALESFORCE_RAW_DATA",
+                "type": "source"
+              },
+              {
+                "alias": "CUS03",
+                "columns": [
+                  {
+                    "columnName": "ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "APP_INFO_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_CATEGORY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_PREVIOUS_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "LNG",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "FLOAT",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "USER_LTV_REVENUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "STREAM_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "POPULATION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_IS_LIMITED_AD_TRACKING",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "BOOLEAN",
+                    "type": "BOOLEAN"
+                  },
+                  {
+                    "columnName": "DEVICE_BROWSER_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_PSEUDO_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_SUB_CONTINENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ITEMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_MODEL_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COUNTRY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_DCLID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_OPERATING_SYSTEM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_REFUND_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_PURCHASE_REVENUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ISO2",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_GCLID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_METRO",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TRANSACTION_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TAX_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_INSTALL_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_FIREBASE_APP_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_FIRST_TOUCH_TIMESTAMP",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_UNIQUE_ITEMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_CONTINENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_DIMENSIONS_HOSTNAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_SERVER_TIMESTAMP_OFFSET",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_USES_TRANSIENT_TOKEN",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "BOOLEAN",
+                    "type": "BOOLEAN"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TOTAL_ITEM_QUANTITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_ADS_STORAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_LANGUAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_DATE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "DATE",
+                    "type": "DATE"
+                  },
+                  {
+                    "columnName": "PRIVACY_INFO_ANALYTICS_STORAGE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_SOURCE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CITY_ASCII",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "LAT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "FLOAT",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "DEVICE_BROWSER",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_REGION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_OPERATING_SYSTEM_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_ADVERTISING_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ADMIN_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_BUNDLE_SEQUENCE_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "NUMBER",
+                    "type": "NUMBER"
+                  },
+                  {
+                    "columnName": "EVENT_PARAMS_UTMS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "VARIANT",
+                    "type": "VARIANT"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_BRAND_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_REFUND_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "CAPITAL",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_HOSTNAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_CITY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_TERM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_PURCHASE_REVENUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_MARKETING_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_SRSLTID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_VENDOR_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "EVENT_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_MEDIUM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_MEDIUM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "USER_PROPERTIES",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_SHIPPING_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_SHIPPING_VALUE_IN_USD",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_TIME_ZONE_OFFSET_SECONDS",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_WEB_INFO_BROWSER",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ECOMMERCE_TAX_VALUE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_INSTALL_STORE",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "PLATFORM",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "DEVICE_MOBILE_OS_HARDWARE_MODEL",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "APP_INFO_VERSION",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CAMPAIGN_ID",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "TRAFFIC_SOURCE_NAME",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "COLLECTED_TRAFIC_SOURCE_MANUAL_CONTENT",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "GEO_COUNTRY",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  },
+                  {
+                    "columnName": "ISO3",
+                    "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                    "sqlType": "TEXT",
+                    "type": "VARCHAR"
+                  }
+                ],
+                "databaseName": "<SOURCE_DATABASE_C360_DEMO>",
+                "mappings": [],
+                "object": "<SOURCE_DATABASE_C360_DEMO>.<SOURCE_SCHEMA_C360_DEMO>.CUSTOMER72_GA_LAT_LONG_VW",
+                "schemaName": "DEMO",
+                "tableName": "CUSTOMER72_GA_LAT_LONG_VW",
+                "type": "source"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "id": 1,
+    "name": "C360"
+  }

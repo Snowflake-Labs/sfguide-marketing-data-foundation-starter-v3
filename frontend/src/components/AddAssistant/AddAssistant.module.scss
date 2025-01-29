@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+ button.mybutton {
+  width: 160px;
+  height: 36px;
+  gap: 8px;
+  text-wrap: nowrap;
+  color: $add-assistant;
+  background-color: $add-assistant-background;
+
+  &:hover {
+    background-color: $add-assistant-hover;
+  }
+}
