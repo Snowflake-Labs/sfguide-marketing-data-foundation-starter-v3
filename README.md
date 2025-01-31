@@ -1,31 +1,29 @@
-# Marketing Unified Data Model
+# Marketing Data Foundation Starter
 
-The purpose of this application is to provide a framework to generate transformations and mapping rules that allow you to standardize and unify different data models into a known data-model that can be used to aggregate data and generate a single source of truth of your marketing campaing data.
+## Introduction
 
-## Snowflake Container Services deployment
+Customers looking to use Snowflake for marketing use cases initially face a significant challenge: it is difficult to import all relevant marketing data into Snowflake and structure it in a unified format that downstream applications can easily utilize to power data-driven marketing.
 
-Steb by step installation is available in the [deployment notebook](/deployment.ipynb). Follow the instructions to get the container app deployed in your snowflake account.
+This starter solution tackles this challenge of creating a marketing data foundation by offering two independent solutions and a merged version, demonstrating how to integrate both solutions into a comprehensive 'marketing app suite'. 
+- Marketing Data Foundation Starter (Merges the two apps below into a ‘marketing app suite’)
+  - [Data Foundation Starter for Customer 360](https://github.com/Snowflake-Labs/sfguide-marketing-data-foundation-starter-customer-360)
+  - [Data Foundation Starter for Campaign Intelligence](https://github.com/Snowflake-Labs/sfguide-marketing-data-foundation-starter-campaign-intelligence)
 
-There is a startup sql script [code_stage/setup.sql](code_stage/setup.sql) which is run after the app is deployed.
+This solution was inspired by how Snowflake runs its own end-to-end Marketing workflows entirely on top of the Snowflake Marketing Data Cloud.
 
-## Run and test the application locally
+## Solution Space
 
-### Backend API
+### Context
 
-1. Follow the steps in the [backend/README.md](backend/README.md) to setup the environment
-2. The API can be run with either the command line or VSCode debugguer as specified by the [README](backend/README.md)
+As described in the diagram below, the two Data Foundation use cases in this starter lay the groundwork to support the two Marketing Execution use cases: Planning & Activation, and Measurement.
 
-### Frontend
+![Alt text](Images/context.png)
 
-1. Install the dependencies with `yarn --cwd frontend install`
-2. Start the frontend aplication using `yarn --cwd frontend start`
+More specifically, this solution covers Data Ingestion, Semantic Unification, and based Analytics use cases for Customer 360 and Campaign Intelligence data.
 
-## Docker
 
-The application can also be run locally using Docker
+![Alt text](Images/context2.png)
 
-1. For the node dependencies run `yarn --cwd frontend install`
-2. Build the frontend package using webpack `yarn --cwd frontend wp:build`
-3. Build the docker image `docker build -t webapp .`
-4. Fill in your credentials in the [.env](../../../Desktop/marketing_unified_data_model_spcs-main/.env) file
-5. Run docker app `docker run --rm -p 3000:3000 --env-file .env --name marketing-data-foundation webapp`
+## Step-By-Step Guide
+
+For prerequisites, environment setup, step-by-step guide and instructions, please refer to the [QuickStart Guide](https://quickstarts.snowflake.com/guide/marketing_data_foundation_starter/index.html).
