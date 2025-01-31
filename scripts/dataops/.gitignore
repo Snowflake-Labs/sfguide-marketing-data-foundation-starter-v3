@@ -1,0 +1,3 @@
+dataops/modelling/dbt_packages
+.vscode/settings.json
+snowflake.log

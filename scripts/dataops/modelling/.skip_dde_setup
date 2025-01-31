@@ -1,0 +1,6 @@
+Rename this file if you would like to use dbt power tools.
+
+This file disables standard DDE startup and setup processes to improve startup
+time.
+
+The DDE is looking for this file `dataops/modelling/.skip_dde_setup` to exist.

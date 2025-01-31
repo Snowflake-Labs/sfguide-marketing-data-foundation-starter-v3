@@ -1,0 +1,60 @@
+## Warehouses for all common DataOps operations.
+## These roles are shared across all environments and are managed from PROD.
+warehouses:
+
+  # 'BI_WH' has different settings, taking out of the loop
+
+  {% for warehouse in ['DE_WH','DS_WH','DEV_WH','DATA_APP_WH'] %}
+  {{warehouse}}:
+    warehouse_size: xsmall
+    auto_suspend: 60
+    auto_resume: true
+    initially_suspended: false
+    comment: {{warehouse}} warehouse for frostbyte customer experience
+    scaling_policy: STANDARD    
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    grants:
+      {% for permission in ['MODIFY','MONITOR','OPERATE','USAGE'] %}
+      {{permission}}: 
+        - ADMIN
+        {% if warehouse == 'DE_WH' %}
+        - DATA_ENGINEER
+        {% endif %}
+        {% if warehouse == 'DS_WH' %}
+        - DATA_SCIENTIST
+        {% endif %}
+        {% if warehouse == 'BI_WH'%}
+        - BI
+        {% endif %}
+        {% if warehouse == 'DATA_APP_WH'%}
+        - DATA_APP
+        {% endif %}
+      {% endfor %}        
+  
+  {% endfor %}
+
+  # demo build warehouse is only used by the setup and does not require namespacing
+  BUILD_WH:
+    comment: demo build warehouse for frostbyte assets
+    warehouse_size: 3X-Large
+    # max_cluster_count: 2
+    # min_cluster_count: 1
+    # scaling_policy: ECONOMY
+    auto_suspend: 60
+    auto_resume: true
+    #initially_suspended: true
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    grants:
+      MODIFY:
+        - SYSADMIN
+      MONITOR:
+        - SYSADMIN
+      OPERATE:
+        - SYSADMIN
+      OWNERSHIP:
+        - SYSADMIN
+      USAGE:
+        - SYSADMIN
+

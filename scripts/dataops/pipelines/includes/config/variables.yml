@@ -1,0 +1,25 @@
+variables:
+  ## For full list of project level variables see https://docs.dataops.live/docs/concepts/project-settings/
+
+  ## DATAOPS_RUNNER_IMAGE_TAG is the version of the DataOps.live
+  ## Orchestrators to use. The Orchestrators are a collection of
+  ## Docker images that contain all the necessary tools and
+  ## software to facilitate DataOps pipelines.
+  DATAOPS_RUNNER_IMAGE_TAG: 5-stable
+
+  ## This defines the prefix used for all Snowflake Databases and other objects using namespacing of prefix or both
+  ## Set this to something meaningful for you. By default this will use a version of your project path and name
+  ## https://docs.dataops.live/docs/sole/user-guide/namespace-environment-management#namespace-management/
+  ##
+  ## We are setting this here to enable DevReady features.
+  DATAOPS_PREFIX: $DATAOPS_CATALOG_SOLUTION_PREFIX
+
+  ## Set environment names for your project
+  ##
+  ## We are setting this here to enable DevReady features.
+  DATAOPS_ENV_NAME_PROD: PROD
+  DATAOPS_ENV_NAME_DEV: DEV
+  DATAOPS_ENV_NAME_QA: QA
+  DATAOPS_BRANCH_NAME_PROD: main
+  DATAOPS_BRANCH_NAME_DEV: dev
+  DATAOPS_BRANCH_NAME_QA: qa

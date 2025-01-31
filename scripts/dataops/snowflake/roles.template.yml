@@ -1,0 +1,31 @@
+## Main DataOps role hierarchy.
+# DATA_ENGINEER|DATA_SCIENTIST|BI|DATA_APP -> ADMIN -> SYSADMIN (normally DATAOPS_SOLE_ADMIN_ROLE)
+
+# These roles are shared across all environments and are managed from PROD.
+roles:
+  ## Administration role
+  ADMIN:
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    roles:
+      - SYSADMIN
+  DATA_ENGINEER:
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    roles:
+      - ADMIN
+  DATA_SCIENTIST:
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    roles:
+      - ADMIN
+  BI:
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    roles:
+      - ADMIN
+  DATA_APP:
+    namespacing: prefix
+    environment: "{{ env.DATAOPS_ENV_NAME_PROD }}"
+    roles:
+      - ADMIN

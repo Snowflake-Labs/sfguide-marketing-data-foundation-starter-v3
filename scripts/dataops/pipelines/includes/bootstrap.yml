@@ -1,0 +1,13 @@
+## This is the "bootstrap" file for the solution. It is used to set up the
+## pipeline jobs and configuration. It is included in the full-ci.yml file.
+
+## Find the base_bootstrap file in the Snowflake Reference Project:
+## https://app.dataops.live/snowflake/shared/snowflake-reference-project/-/blob/main/pipelines/includes/base_bootstrap.yml
+include:
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/base_bootstrap.yml
+
+  ## This project's configuration
+  - /dataops/pipelines/includes/config/variables.yml
+  - /dataops/pipelines/includes/config/stages.yml

@@ -1,0 +1,92 @@
+@import '../../../styles/variables';
+
+.container {
+  width: fit-content;
+  height: 100%;
+  box-sizing: content-box;
+  border: 1px solid $mp-border-color;
+  border-radius: $border-radius;
+
+  &.expanded {
+    width: 276px;
+    min-width: 276px;
+
+    >div {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &.collapsed {
+    min-width: 60px;
+  }
+
+  .header {
+    box-sizing: border-box;
+    padding: 16px;
+
+    .arrow {
+      padding: 0;
+      color: $color-black;
+    }
+
+    .buttonCreateTable {
+      width: fit-content;
+    }
+  }
+
+  .collapse {
+
+    >div>div {
+      width: 100%;
+    }
+
+    .content {
+      scroll-margin-top: 210px;
+      height: 100%;
+      overflow-y: hidden;
+      overflow-x: hidden;
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        top: 0;
+        z-index: 2;
+        background-color: $color-white;
+
+        .headerLabel {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 12px;
+        }
+      }
+
+      .list {
+        scroll-padding-top: 70px;
+        max-height: 80%;
+        overflow-y: auto;
+        padding: 0 16px;
+        top: 120px;
+      }
+    }
+  }
+
+  .collapsed {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .header {
+      padding-bottom: 0;
+    }
+
+    .label {
+      padding: 0 16px;
+      writing-mode: vertical-rl;
+      text-wrap: nowrap;
+      transform: scale(-1);
+    }
+  }
+}

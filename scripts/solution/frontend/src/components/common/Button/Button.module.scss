@@ -1,0 +1,14 @@
+button.button {
+  text-transform: none;
+  text-wrap: nowrap;
+
+  .spinner {
+    align-content: center;
+    height: 20px;
+    font-size: 14px;
+
+    .icon {
+      color: inherit
+    }
+  }
+}

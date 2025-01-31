@@ -1,0 +1,48 @@
+Get Native App:
+  stage: Additional Configuration
+  extends:
+    - .agent_tag
+  image: $DATAOPS_UTILS_RUNNER_IMAGE
+  variables:
+    DATAOPS_TEMPLATES_DIR: /root/.config/snowflake
+    DOTENV_PATH: $CI_PROJECT_DIR/native-app.env
+    CONFIG_PATH: /root/.config/snowflake
+  script:
+    - pip install snowflake-cli-labs==2.2.0
+    - snow connection list #(creates the ~/.config/snowflake/config.toml)
+    - echo -e "[connections]\n[connections.\"default\"]\\naccount = \"$DATAOPS_SOLE_ACCOUNT\"\nuser = \"$DATAOPS_SOLE_USERNAME\"\npassword = \"$DATAOPS_SOLE_PASSWORD\"\nwarehouse = \"$DATAOPS_SOLE_WAREHOUSE\"\nrole = \"$DATAOPS_SOLE_ROLE\" \n"> $CONFIG_PATH/config.toml
+    - cat $CONFIG_PATH/config.toml
+    - /dataops || true
+    - snow connection list
+    - snow connection set-default default
+    - snow connection test
+    - echo -e "DESC APPLICATION ${DATAOPS_CATALOG_CUSTOMER_NAME}_MARKETING_DATA_FOUNDATION_STARTER_V3_UNKNOWN_USER;" > desc.sql
+    - cat desc.sql
+    - snow --config-file $CONFIG_PATH/config.toml sql -f desc.sql --format JSON > desc.json
+    - cat desc.json
+    - org=$(jq -r '.[] | select(.property == "source_organization") | .value | ascii_downcase' desc.json)
+    - account=$(jq -r '.[] | select(.property == "source_account") | .value | ascii_downcase' desc.json)
+    - name=$(jq -r '.[] | select(.property == "name") | .value' desc.json)
+    - MARKETING_DATA_FOUNDATION_URL="https://app.snowflake.com/$org/$account/#/apps/application/$name/readme"
+    - echo "MARKETING_DATA_FOUNDATION_URL=$MARKETING_DATA_FOUNDATION_URL" >> $DOTENV_PATH
+    - echo $MARKETING_DATA_FOUNDATION_URL
+
+    # - snow --config-file $CONFIG_PATH/config.toml sql -q "DESC APPLICATION CUSTOMER360_STARTER;" --format JSON > desc.json
+    # - org=$(jq -r '.[] | select(.property == "source_organization") | .value | ascii_downcase' desc.json)
+    # - account=$(jq -r '.[] | select(.property == "source_account") | .value | ascii_downcase' desc.json)
+    # - name=$(jq -r '.[] | select(.property == "name") | .value' desc.json)
+    # - CUSTOMER360_NATIVE_APP_URL="https://app.snowflake.com/$org/$account/#/apps/application/$name/readme"
+    # - echo "CUSTOMER360_NATIVE_APP_URL=$CUSTOMER360_NATIVE_APP_URL" >> $DOTENV_PATH
+    # - echo $CUSTOMER360_NATIVE_APP_URL
+
+    # - snow --config-file $CONFIG_PATH/config.toml sql -q "DESC APPLICATION CAMPAIGN_INTELLIGENCE_STARTER;" --format JSON > desc.json
+    # - org=$(jq -r '.[] | select(.property == "source_organization") | .value | ascii_downcase' desc.json)
+    # - account=$(jq -r '.[] | select(.property == "source_account") | .value | ascii_downcase' desc.json)
+    # - name=$(jq -r '.[] | select(.property == "name") | .value' desc.json)
+    # - CAMPAIGNINTEL_NATIVE_APP_URL="https://app.snowflake.com/$org/$account/#/apps/application/$name/readme"
+    # - echo "CAMPAIGNINTEL_NATIVE_APP_URL=$CAMPAIGNINTEL_NATIVE_APP_URL" >> $DOTENV_PATH
+    # - echo $CAMPAIGNINTEL_NATIVE_APP_URL
+  artifacts:
+    reports:
+      dotenv: $DOTENV_PATH # Report back dotenv file to the system.
+  icon: ${SNOWFLAKE_ICON}

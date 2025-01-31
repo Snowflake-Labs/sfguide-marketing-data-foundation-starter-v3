@@ -1,0 +1,65 @@
+## Project
+name: SOLUTION_TEMPLATE
+version: "1.0"
+config-version: 2
+profile: snowflake_operations
+
+## Sources
+model-paths: [models, sources]
+analysis-paths: [analysis]
+test-paths: [tests]
+seed-paths: [seeds]
+macro-paths: [macros]
+snapshot-paths: [snapshots]
+
+## Target
+target-path: target
+clean-targets: [target, dbt_modules]
+
+## Models
+models:
+  +schema_grants: &schema_grants
+    select:
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_ADMIN"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_ENGINEER"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_SCIENTIST"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_BI"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_APP"
+    insert:
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_ADMIN"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_ENGINEER"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_SCIENTIST"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_BI"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_APP"
+    update:
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_ADMIN"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_ENGINEER"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_SCIENTIST"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_BI"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_APP"
+    delete:
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_ADMIN"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_ENGINEER"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_SCIENTIST"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_BI"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_APP"
+    truncate:
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_ADMIN"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_ENGINEER"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_SCIENTIST"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_BI"
+      - "{{env_var('DATAOPS_CATALOG_SOLUTION_PREFIX', 'TASTY')}}_DATA_APP"
+
+  +transient: false
+  +persist_docs:
+    relation: true
+    columns: true
+  +materialized: table
+  SOLUTION_TEMPLATE:
+    # https://docs.dataops.live/docs/mate/security-and-governance/
+    +post-hook:
+      - "{{dataops.apply_snowflake_governance()}}"
+    samples:
+      +schema: SAMPLES
+      +meta:
+        grants: *schema_grants

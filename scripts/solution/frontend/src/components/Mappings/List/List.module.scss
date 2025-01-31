@@ -1,0 +1,131 @@
+@import '../../../styles/variables';
+
+$collapse-icon-width: 40px;
+
+.container {
+  box-sizing: border-box;
+  padding-inline: 1px;
+
+  .list {
+    padding-top: 2px;
+
+    .accordionContainer {
+      padding-bottom: 4px;
+
+      .accordion {
+        padding: 0;
+
+        .subheader {
+          height: 32px;
+          padding: 6px 4px 6px 12px;
+          margin-bottom: 4px;
+
+          &:hover {
+            background-color: $mp-sidebar-hover-color;
+            outline: $border $mp-sidebar-hover-border-color;
+            border-radius: $border-radius;
+          }
+
+          .label {
+            width: calc(100% - $collapse-icon-width - 16px);
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 4px;
+
+            .tableName {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            .tableAlias {
+              text-wrap: nowrap;
+            }
+          }
+
+          .collapsableContainer {
+            height: 100%;
+            padding: 0;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: unset;
+            }
+
+            .collapseIcon {
+              width: $collapse-icon-width;
+
+              >svg {
+                width: 32px;
+              }
+            }
+          }
+        }
+
+        .collapseContainer {
+          padding-left: 12px;
+
+          li.listItem {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            padding: 6px 8px;
+            margin-bottom: 4px;
+            cursor: pointer;
+
+            .icon {
+              margin-left: auto;
+              align-self: flex-end;
+              border-radius: 4px;
+            }
+
+            &:hover:not(.disabled) {
+              background-color: $mp-sidebar-hover-color;
+              outline: $border $mp-sidebar-hover-border-color;
+              border-radius: $border-radius;
+            }
+
+            &.disabled {
+              cursor: unset;
+              opacity: 0.3;
+            }
+
+            >p {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+          }
+        }
+
+        div[draggable='true'] {
+
+          .subheader {
+            cursor: grab;
+
+            .collapsableContainer {
+              cursor: grab;
+            }
+          }
+
+          .collapseContainer {
+            cursor: grab;
+          }
+        }
+      }
+    }
+  }
+}
+
+.columnOptions {
+  margin-top: 1px;
+}
+
+.selectedListItem {
+  background-color: $mp-sidebar-selected-color;
+  outline: 1px solid $mp-sidebar-selected-border-color !important;
+  border-radius: 4px;
+}

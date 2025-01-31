@@ -1,0 +1,12 @@
+.container {
+  position: absolute;
+  z-index: 99;
+  top: 24px;
+  .options {
+    display: flex;
+    flex-direction: row;
+    .optionIcon {
+      margin-right: 8px;
+    }
+  }
+}

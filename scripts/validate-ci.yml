@@ -1,0 +1,14 @@
+# This file is executed when using the "Verify solution" button in the Catalog.
+
+include:
+  - /dataops/pipelines/includes/bootstrap.yml
+
+  ## Testing MATE models
+  - project: snowflake/shared/snowflake-reference-project
+    ref: main
+    file: /pipelines/includes/default/test_all_models.yml
+
+  # ## Run the Homepage SQL (Not available just yet)
+  # - project: snowflake/shared/snowflake-reference-project
+  #   ref: main
+  #   file: /pipelines/includes/default/run_homepage_sql.yml

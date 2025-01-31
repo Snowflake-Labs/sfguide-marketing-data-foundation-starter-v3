@@ -1,0 +1,1 @@
+/Users/mfigueroamontero/Documents/Innovation Team/marketing_unified_data_model_spcs/app/src/setup.sql

@@ -1,0 +1,23 @@
+## The configuration uses a single user account (defined from variable DATAOPS_SOLE_USERNAME)
+## This remapped the incoming variables to different keys in the vault
+
+SNOWFLAKE:
+  ACCOUNT: "{{ env.DATAOPS_SOLE_ACCOUNT }}"
+  MASTER:
+    USERNAME: "{{ env.DATAOPS_SOLE_USERNAME }}"
+    PASSWORD: "{{ env.DATAOPS_SOLE_PASSWORD }}"
+    WAREHOUSE: "{{ env.DATAOPS_SOLE_WAREHOUSE }}"
+    ROLE: "{{ env.DATAOPS_SOLE_ROLE }}"
+    THREADS: 8
+  TRANSFORM:
+    USERNAME: "{{ env.DATAOPS_SOLE_USERNAME }}"
+    PASSWORD: "{{ env.DATAOPS_SOLE_PASSWORD }}"
+    ROLE: "{{ env.DATAOPS_SOLE_ROLE }}"
+    WAREHOUSE: "{{ env.DATAOPS_SOLE_WAREHOUSE }}"
+    THREADS: 8
+  INGESTION:
+    USERNAME: "{{ env.DATAOPS_SOLE_USERNAME }}"
+    PASSWORD: "{{ env.DATAOPS_SOLE_PASSWORD }}"
+    ROLE: "{{ env.DATAOPS_SOLE_ROLE }}"
+    WAREHOUSE: "{{ env.DATAOPS_SOLE_WAREHOUSE }}"
+    THREADS: 8

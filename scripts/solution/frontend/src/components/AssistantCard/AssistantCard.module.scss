@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+div.container {
+    border: 1px solid;
+    border-color: $assistant-card-border;
+    border-radius: $border-radius;
+    margin-left: 0px;
+    margin-bottom: 24px;
+    padding: 24px;
+    cursor: pointer;
+    min-height: 136px;
+
+    &:hover {
+        background-color: $assistant-card-background;
+    }
+
+    .title {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 16px;
+    }
+}

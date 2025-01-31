@@ -1,0 +1,30 @@
+## Update this file to reflect your solution.
+## Rename it to listing.yml when you are ready to submit your solution to the SSC.
+
+name: Marketing Data Foundation Starter V3 SPCS # Title that appears on the SSC listing
+version: "v3" # A marketing version number to help your consumers understand the iterations of this solution
+description: "Customers looking to use Snowflake for marketing use cases initially face a significant challenge. It is difficult to import all relevant marketing data into Snowflake and structure it in a unified format that downstream applications can easily utilize to power data-driven marketing. This starter solution tackles this challenge by improving the previous Snowflake for Marketing Starter solution version and leveraging both Dynamic Tables and LLMs to provide a fully AI powered assistant that helps you with Data Engineering and Business Intelligence Questions.
+https://snowflake.seismic.com/Link/Content/DCGV3bHFV6BX28f2hfCgjDfjVWBj
+
+Deck
+https://snowflake.seismic.com/Link/Content/DCM298mQFHm8bGmPT92RRfb7VFFd
+"
+creator: "Solution Innovation Team" # Your team name, E.g. "frostbyte" or "PolarIS" or "community"
+icon: "https://app.dataops.live/uploads/-/system/project/avatar/11120/snowflake_for_marketing.jpg" # The small icon that appears on the listing results page
+release_status: "Published" # Start off as a draft, then change to "Published" when you've tested and are ready to share with the hundreds of users
+use_case:
+    - "Marketing"
+pre_instance_setup_checklist:
+  - "Mandatory: I have enabled \n Snowflake Notebooks on my account"
+  - "Mandatory: I have enabled \n Cortex Analyst feature on my account"
+
+vertical_applicability: 
+    - "Marketing"
+workload: 
+    - "Data Engineering"
+    - "Analytics"
+    - "Snowpark"
+    - "Streamlit"
+    - "Data Apps"
+# pre_instance_setup_message: "" # HTML Message to be displayed during setup of this solution
+# required_data_shares: [] # See documentation for details on how to fill this out
