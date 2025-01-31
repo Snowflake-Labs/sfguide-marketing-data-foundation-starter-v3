@@ -1,3 +1,0 @@
-Build Solution Homepage:
-  stage: "Generate Docs"
-  needs: ["Initialise Pipeline", "Get Native App"]
