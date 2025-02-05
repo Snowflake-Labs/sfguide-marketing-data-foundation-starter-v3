@@ -1,7 +1,0 @@
-definition_version: 1
-native_app:
-  name: <CUSTOMER>_Marketing_Data_Foundation_Starter_V3
-  source_stage: app_src.stage
-  artifacts:
-    - src: src/*
-      dest: ./
