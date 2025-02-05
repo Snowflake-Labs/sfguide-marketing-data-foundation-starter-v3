@@ -1,0 +1,192 @@
+@import '../../../styles/variables';
+
+$column-gap: 16px;
+$filler-width: 24px;
+$columns-width: 45%;
+
+.container {
+  width: 95%;
+  height: 100%;
+  border: 1px solid $mp-border-color;
+  border-radius: $border-radius;
+  padding: 24px 60px;
+  overflow: auto;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .title {
+      text-align: center;
+    }
+
+    .subHeader {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 10px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .tableContainer {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $mp-border-color;
+      border-radius: $border-radius;
+      padding: 24px;
+      gap: 6px;
+
+      .subTitlesContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: $column-gap;
+        padding: 6px;
+
+        >* {
+          display: flex;
+          flex: 1 1;
+          width: $columns-width;
+        }
+
+
+        .filler {
+          max-width: $filler-width;
+          width: $filler-width;
+        }
+      }
+
+      &:hover {
+        .buttonsContainer {
+          opacity: 100%;
+        }
+      }
+
+      .buttonsContainer {
+        margin-left: auto;
+        opacity: 0%;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  .row {
+    outline: 1px solid transparent;
+    transition: 0.3s;
+    padding: 6px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    display: flex;
+    height: 36px;
+    gap: $column-gap;
+
+    &:hover {
+      outline: 1px solid $mp-row-border-color;
+      border-radius: $border-radius;
+    }
+
+    >* {
+      display: flex;
+      flex: 1;
+    }
+
+    .columnContainer {
+      width: $columns-width;
+
+      .column {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        padding-right: 8px;
+      }
+    }
+
+    .icon {
+      max-width: $filler-width;
+      min-width: $filler-width;
+      margin: auto;
+      color: $disabled-button;
+    }
+  }
+}
+
+.overflow {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.selectedMap {
+  background-color: $mp-sidebar-selected-color;
+  border: 1px solid $mp-sidebar-selected-border-color !important;
+  border-radius: 4px;
+}
+
+.errorMessage {
+  color: $error;
+  display: flex;
+  margin-left: auto;
+  overflow: hidden;
+
+  .text {
+    @extend .overflow;
+  }
+
+  >svg {
+    height: 20px;
+  }
+}
+
+.targetHeader {
+  gap: 12px;
+  align-items: center;
+}
+
+.column {
+  border-radius: $border-radius;
+
+  &.varchar {
+    background-color: $column-type-varchar;
+  }
+
+  &.number {
+    background-color: $column-type-number;
+  }
+
+  &.boolean {
+    background-color: $column-type-boolean;
+  }
+
+  &.variant {
+    background-color: $column-type-variant;
+  }
+
+  &.date {
+    background-color: $column-type-date;
+  }
+
+  &.null {
+    background-color: $column-type-null;
+  }
+
+  &.formula {
+    background-color: $mapping-type-formula;
+  }
+}

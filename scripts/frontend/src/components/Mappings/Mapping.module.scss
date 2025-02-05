@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.container {
+    height: calc(100vh - $footer-height - $mp-height-aprox-top);
+
+    .headerContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 24px;
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 4px;
+            overflow: hidden;
+
+            .label {
+                text-wrap: nowrap;
+            }
+
+            .headerDbSch {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+        }
+    }
+
+    .mappingContainer {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 24px;
+    }
+}

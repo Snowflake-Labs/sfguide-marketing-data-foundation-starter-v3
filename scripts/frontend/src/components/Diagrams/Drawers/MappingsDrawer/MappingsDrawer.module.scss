@@ -1,0 +1,41 @@
+@import '../../../../styles/variables';
+
+$action-footer-height: 40px;
+$action-footer-margin: 24px;
+
+.container {
+    width: 712px;
+    min-width: 712px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: auto;
+
+    &.formula {
+        flex-direction: column;
+        gap: 24px;
+
+        .line {
+            display: none;
+        }
+    }
+
+    .line {
+        margin-left: 24px;
+        margin-right: 24px;
+        border-left: 1px solid $mp-border-color;
+    }
+}
+
+.arrowIcon {
+    align-self: center;
+    color: $color-secondary;
+}
+
+.columnsSelector {
+    height: $action-footer-height;
+    margin-top: $action-footer-margin;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}

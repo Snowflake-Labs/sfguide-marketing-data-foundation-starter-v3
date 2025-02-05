@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .tableContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+
+            td,
+            th {
+                text-align: start;
+            }
+        }
+    }
+
+    .notInProgressLabel {
+        margin-top: 112px;
+        text-align: center;
+    }
+}
+
+.spinner {
+    margin-top: 112px;
+}

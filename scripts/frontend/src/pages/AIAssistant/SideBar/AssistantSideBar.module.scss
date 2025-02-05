@@ -1,0 +1,23 @@
+
+@import '../../../styles/variables';
+.sideBar {
+    min-width: 280px;
+    background-color: $assistant-sidebar-background;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.spacing {
+    text-align: center;
+    justify-content: center;
+}
+
+.assistants {
+    text-align: -webkit-center;
+    margin-top: 24px;
+}
