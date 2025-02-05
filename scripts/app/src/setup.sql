@@ -392,7 +392,7 @@ CREATE OR REPLACE PROCEDURE LLM.GET_CHAT_RESPONSE(message VARCHAR, file VARCHAR,
     LANGUAGE PYTHON
     RUNTIME_VERSION = 3.8
     HANDLER = 'run'
-    PACKAGES = ('snowflake')
+    PACKAGES = ('snowflake', 'snowflake-snowpark-python')
     AS $$
 import _snowflake
 import json
