@@ -42,15 +42,6 @@ tables:
           - "ACTIVE"
           - "CLOSED"
 
-      - name: CAMPAIGN_STATUS
-        description: The status of the campaign associated with the metrics.
-        expr: CAMPAIGN_STATUS
-        data_type: TEXT
-        sample_values:
-          - "INACTIVE"
-          - "ACTIVE"
-          - "CLOSED"
-
       - name: ACCOUNT_CREATED_AT
         description: The timestamp when the campaign was created.
         expr: ACCOUNT_CREATED_AT

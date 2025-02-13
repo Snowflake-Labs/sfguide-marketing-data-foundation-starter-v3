@@ -11,6 +11,8 @@ artifacts:
       - <image_repo_short_path>eap_backend
       - <image_repo_short_path>eap_router
 privileges:
+ - IMPORTED PRIVILEGES ON SNOWFLAKE DB:
+      description: "To access cortex"
  - CREATE COMPUTE POOL:
       description: "Enable application to create its own compute pool(s)"
  - BIND SERVICE ENDPOINT:

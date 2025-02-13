@@ -1,5 +1,5 @@
 {
-  "account_registry": "<account-identifier>.registry.snowflakecomputing.com",
+  "account_registry": "<account_registry>.registry.snowflakecomputing.com",
 
   "database": "MARKETING_DATA_FOUNDATION_V3",
   "schema": "METADATA",
@@ -13,6 +13,7 @@
 
   "code_stage": "CODE_STG",
   "warehouse": "MARKETING_DATA_FOUNDATION_WAREHOUSE",
+
   "data_quality_database": "data_quality_notebooks",
   "dynamic_table_warehouse": "MARKETING_DATA_FOUNDATION_WAREHOUSE",
 

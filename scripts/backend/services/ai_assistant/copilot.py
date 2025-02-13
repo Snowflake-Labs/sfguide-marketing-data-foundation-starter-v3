@@ -41,10 +41,10 @@ class CortexCopilot(LLM):
 
 
     def _send_message(self, sp_session, prompt: str, file: str) -> dict:
-        if not self.use_cloud_udf and (is_docker() or is_local()):
-            return self._send_message_local(sp_session, prompt, file)
-        else:
-            return self._send_message_cloud(sp_session, prompt, file)
+        # if not self.use_cloud_udf and (is_docker() or is_local()):
+        #     return self._send_message_local(sp_session, prompt, file)
+        # else:
+        return self._send_message_cloud(sp_session, prompt, file)
 
 
     def _send_message_cloud(self, sp_session, prompt: str, file: str) -> dict:

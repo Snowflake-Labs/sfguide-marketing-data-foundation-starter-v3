@@ -17,7 +17,6 @@ jest.mock('react-router', () => ({
   })
 }));
 
-
 describe('FooterContext', () => {
   it('ChildrenValueTest', async () => {
     renderWithContext(

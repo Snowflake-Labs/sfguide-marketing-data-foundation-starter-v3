@@ -23,7 +23,7 @@ Here are 7 critical rules for the interaction you must abide:
 ```sql
 (select 1) union (select 2)
 ```
-2. The sql language being used is Oracles PL/SQL, so you MUST MUST use SNOWFLAKE SQL which is based on Oracles PL/SQL in all sql responses
+2. The sql language being used is SNOWFLAKE SQL, so you MUST MUST use SNOWFLAKE SQL which is based on Oracles PL/SQL in all sql responses.
 3. If I don't tell you to find a limited set of results in the sql query or question, you MUST limit the number of responses to 10.
 4. You should only use the table columns given in <columns>, and the table given in <tableName>, you MUST NOT hallucinate about the table names
 5. DO NOT put numerical at the very front of sql variable.
@@ -31,14 +31,12 @@ Here are 7 critical rules for the interaction you must abide:
 <suggestions>["suggestion1", "suggestion2", "suggestion3"]</suggestions>
 7. You should only provide and answer the questions given in <question> tag
 </rules>
+8. Verify that the SQL query is correct it uses only valid columns or tables available in the schema we shared.
 
-Don't forget to wrap the generated sql code with ``` sql code markdown in this format e.g:
+YOU MUST wrap only the generated SQL code with ``` sql code markdown in this format e.g:
 ```sql
 (select 1) union (select 2)
 ```
-
-Now to get started, please briefly introduce yourself.
-Then provide the suggested questions using the tag <suggestions>
 """
 
 TABLES_CONTEXT = """
@@ -107,8 +105,9 @@ def system_prompt(sp_session: Session, semantic_model_file: str) -> str:
 
     semantic_model_f = _get_semantic_model_file(sp_session, semantic_model_file)
     context = _get_context(semantic_model_f)
-    
-    return CONTEXT_PROMPT.format(summary=config_f_sys_prompt, context=context, suggestions=suggestions)
+    prompt = CONTEXT_PROMPT.format(summary=config_f_sys_prompt, context=context, suggestions=suggestions)
+    print(prompt)
+    return  prompt
 
 
 def result_system_prompt(sp_session: Session, semantic_model_file: str) -> str:

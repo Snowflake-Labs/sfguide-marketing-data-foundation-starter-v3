@@ -2,7 +2,7 @@ Flask
 flask_cors
 gunicorn==22.0.0
 snowflake-connector-python[pandas]
-snowflake-snowpark-python
+snowflake-snowpark-python==1.20.0
 six
 jinja2==3.0.3
 pandas

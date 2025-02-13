@@ -15,6 +15,7 @@ from jinjasql import JinjaSql
 from globals import *
 from snowflake.snowpark.functions import col, lit, max as max_
 from model_manager.process_results import ProcessResult
+from services.session import is_local
 
 
 def manage_label(label_name, description, attributes):
@@ -397,6 +398,7 @@ def run_process(process_id: int) -> ProcessResult:
             ).collect()
         )
         attributes = json.loads(process_df.iloc[0, 0])
+        table_name = attributes["target"]["object"]
 
         process_type_id = attributes[PROCESS_TYPE_ID_KEY]
         process_name = attributes[PROCESS_NAME_KEY]
@@ -416,7 +418,13 @@ def run_process(process_id: int) -> ProcessResult:
                        {process_id}, SYSDATE(), NULL, OBJECT_CONSTRUCT('msg', OBJECT_CONSTRUCT(
                        'process_name','{process_name}', 'status', 'started'))"""
         ).collect()
-        results_df = pd.DataFrame(sp_session.sql(f"""{sql_command}""").collect())
+        results_df = sp_session.call(
+            f"{APPLICATION}.METADATA.CREATE_DYNAMIC_TABLE", sql_command
+        )
+        if not is_local():
+            sp_session.call(
+                f"{APPLICATION}.METADATA.GRANTER", APPLICATION, [table_name]
+            )
         details = ""
 
         if object_action.lower() == "create" and object_type.lower() in [
@@ -436,7 +444,7 @@ def run_process(process_id: int) -> ProcessResult:
                 "dynamic_table", target_obj_db, target_obj_sch, target_obj_name, labels
             )
 
-            results = results_df.iloc[0, 0]
+            results = results_df[0][0]
             details = f"""'details',{"$"}{"$"}{results}{"$"}{"$"}"""
 
         sp_session.sql(

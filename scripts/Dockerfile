@@ -8,7 +8,7 @@ COPY backend/ ./api/
 
 RUN pip install -r ./api/requirements.txt
 
-ENV FLASK_ENV production
+ENV FLASK_ENV=production
 
 EXPOSE 3000
 
