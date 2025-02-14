@@ -82,14 +82,14 @@ CREATE OR REPLACE VIEW <DB>.SALESFORCE_SAMPLE.SALESFORCE_VW AS
             SALESFORCE_CAMPAIGN_MEMBER_ID,SALESFORCE_CAMPAIGN_NAME,SALESFORCE_PERSON_ID,
             SALESFORCE_PERSON_NAME,STATUS, SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&',0) as SF_UTM_SOURCE,
                SPLIT_PART(SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&utm_medium=',2), '&', 1) as SF_UTM_MEDIUM, 
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&utm_campaign=', 2),'&',0) as SF_utm_campaign,
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&utm_content=', 2),'&',0) as SF_utm_ad_name,
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&ad_id=', 2),'&',0) as SF_utm_ad_id
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%utm_campaign%=', 2),'&',0) as SF_utm_campaign,
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%utm_content%=', 2),'&',0) as SF_utm_ad_name,
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%ad_id%=', 2),'&',0) as SF_utm_ad_id
                from <DB>.C360_SAMPLE_SCHEMA.SALESFORCE_RAW_DATA;
 
 CREATE OR REPLACE VIEW <DB>.C360_SAMPLE_SCHEMA.CUSTOMER72_GA_LAT_LONG_UTMS_VW AS 
 select  *, value:value.string_value as QUERY_PARAMETERS_UTMS, SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&',0) as UTM_SOURCE,
                SPLIT_PART(SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, 'utm_source=', 2),'&utm_medium=',2), '&', 1) as UTM_MEDIUM, 
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&utm_campaign=', 2),'&',0) as utm_campaign,
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&utm_content=', 2),'&',0) as utm_ad_name,
-               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '&ad_id=', 2),'&',0) as utm_ad_id from C360_SAMPLE_SCHEMA.CUSTOMER72_GA_LAT_LONG_VW,  LATERAL FLATTEN( INPUT => PARSE_JSON(EVENT_PARAMS_UTMS) );
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%utm_campaign%=', 2),'&',0) as utm_campaign,
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%utm_content%=', 2),'&',0) as utm_ad_name,
+               SPLIT_PART(SPLIT_PART(QUERY_PARAMETERS_UTMS, '%ad_id%=', 2),'&',0) as utm_ad_id from C360_SAMPLE_SCHEMA.CUSTOMER72_GA_LAT_LONG_VW,  LATERAL FLATTEN( INPUT => PARSE_JSON(EVENT_PARAMS_UTMS) );
