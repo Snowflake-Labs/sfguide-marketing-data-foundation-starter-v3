@@ -29,7 +29,8 @@ class CortexComplete(LLM):
     def analyse_sql_result(self, context: Message, result: str) -> str:
         if not result: return None
         messages = self._get_analyse_sql_result_messages(self.context_file, context, result)
-        chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-7b', messages)
+        # chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-7b', messages)
+        chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-large2', messages)
         response = chat_complete.first()[0]
         return response
 
@@ -40,7 +41,8 @@ class CortexComplete(LLM):
 
     def _cortex_chat_complete(self, chat_history: List[Message]) -> str:
         messages = json_parse_list(chat_history)
-        chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-7b', messages)
+        # chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-7b', messages)
+        chat_complete = self.sp_session.call(f'{APPLICATION}.{LLM_SCHEMA}.GET_CHAT_COMPLETE', 'mistral-large2', messages)
         response = chat_complete.first()[0]
         return response
 
