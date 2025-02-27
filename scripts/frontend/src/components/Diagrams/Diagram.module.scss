@@ -1,0 +1,72 @@
+@import '../../styles/variables';
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    >* {
+        height: inherit;
+        width: inherit;
+    }
+}
+
+.mini-map-target {
+    fill: $node-header-target-bg;
+}
+
+.mini-map-source {
+    fill: $node-header-source-bg;
+}
+
+.buttonHelp {
+    position: relative;
+    top: calc(100% - 60px);
+    left: 57px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    background-color: $help-button-background !important;
+    border-radius: 68px !important;
+    min-width: 0px !important;
+    min-height: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.popupBox{
+    background-color: $color-white;
+    box-shadow: 0px 1px 8px 0px $node-box-shadow;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    .SourceTablesLegend{
+        background-color: $node-header-source-bg;
+        width: 100%;
+        border-radius: inherit;
+    }
+    .TargetTablesLegend{
+        background-color: $node-header-target-bg;
+        width: 100%;
+        border-radius: inherit;
+    }
+    .VariableValuesLegend{
+        background-color: $variable-mappings;
+        width: 100%;
+        border-radius: inherit;
+    }
+    .StaticValuesLegend{
+        background-color: $static-mappings;
+        width: 100%;
+        border-radius: inherit;
+    }
+    .FormulaNodesLegend{
+        background-color: $mapping-type-formula;
+        height: 36px;
+        width: 100%;
+        border-radius: inherit;
+    }
+}

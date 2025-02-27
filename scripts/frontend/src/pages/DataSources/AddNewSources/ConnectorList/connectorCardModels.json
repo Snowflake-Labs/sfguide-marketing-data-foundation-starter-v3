@@ -1,0 +1,104 @@
+[
+  {
+    "accordionSummary": "NativeAppConnectors",
+    "accordionSections": [
+      {
+        "accordionSummary": "",
+        "accordionCards": [
+          {
+            "id": "1",
+            "image_name": "airbyte",
+            "key_name": "Airbyte",
+            "label": "Airbyte",
+            "disabled": true,
+            "chips": ["NativeAppChip"]
+          },
+          {
+            "id": "2",
+            "image_name": "omnata",
+            "key_name": "Omnata",
+            "label": "Omnata",
+            "disabled": true,
+            "chips": ["NativeAppChip"],
+            "providers": ["LinkedInAds"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "accordionSummary": "ExternalConnectors",
+    "accordionSections": [
+      {
+        "accordionSummary": "",
+        "accordionCards": [
+          {
+            "id": "3",
+            "image_name": "adverity",
+            "key_name": "Adverity",
+            "label": "Adverity",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "4",
+            "image_name": "fivetran",
+            "key_name": "Fivetran",
+            "label": "Fivetran",
+            "disabled": true,
+            "chips": ["ExternalChip"],
+            "providers": ["FacebookAds"]
+          },
+          {
+            "id": "5",
+            "image_name": "funnel",
+            "key_name": "Funnel",
+            "label": "Funnel",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "6",
+            "image_name": "improvado",
+            "key_name": "Improvado",
+            "label": "Improvado",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "7",
+            "image_name": "matillion",
+            "key_name": "Matillion",
+            "label": "Matillion",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "8",
+            "image_name": "rivery",
+            "key_name": "Rivery",
+            "label": "Rivery",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "9",
+            "image_name": "segment",
+            "key_name": "Segment",
+            "label": "Segment",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          },
+          {
+            "id": "10",
+            "image_name": "supermetrics",
+            "key_name": "Supermetrics",
+            "label": "Supermetrics",
+            "disabled": true,
+            "chips": ["ExternalChip"]
+          }
+        ]
+      }
+    ]
+  }
+]

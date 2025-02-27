@@ -1,0 +1,1260 @@
+{
+  "databases": [
+    {
+      "databaseName": "<TARGET_DATABASE>",
+      "schemas": [
+        {
+          "databaseName": "<TARGET_DATABASE>",
+          "schemaName": "TARGET",
+          "tables": [
+            {
+              "alias": "DIM03",
+              "columns": [
+                {
+                  "columnName": "id",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "campaign_name",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "account_id",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "date_start",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "date_end",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "status",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "daily_budget",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "lifetime_budget",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "budget_remaining",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "created_at",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "updated_at",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                }
+              ],
+              "databaseName": "<TARGET_DATABASE>",
+              "mappings": [
+                {
+                  "mapping": "ADA03.RECORD_DATA['campaign_id']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CONCAT('Campaign_', REPLACE(ADA03.RECORD_DATA['campaign_id'],'\\\"\"',''))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "campaign_name",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAST(CAM04.RECORD_DATA['dailyBudget']['amount'] AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "daily_budget",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "status",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(CAM04.RECORD_DATA['changeAuditStamps']['lastModified']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "updated_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(CAM04.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "created_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp(ADA03.RECORD_DATA['start_date'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "date_start",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(ADA03.RECORD_DATA['end_date'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "date_end",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                }
+              ],
+              "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+              "schemaName": "TARGET",
+              "tableName": "DIM_CAMPAIGN_OMNATA_LINKEDIN",
+              "type": "target"
+            },
+            {
+              "alias": "DIM05",
+              "columns": [
+                {
+                  "columnName": "id",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "ad_group_name",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "campaign_id",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "account_id",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "created_at",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "updated_at",
+                  "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                }
+              ],
+              "databaseName": "<TARGET_DATABASE>",
+              "mappings": [
+                {
+                  "mapping": "CAM04.APP_IDENTIFIER",
+                  "sources": [
+                    {
+                      "columnName": "APP_IDENTIFIER",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "column"
+                },
+                {
+                  "mapping": "REPLACE(CAM04.RECORD_DATA['name'],'','')",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ad_group_name",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAST(SPLIT_PART(CAM04.RECORD_DATA['campaignGroup'],':',4) AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "campaign_id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAST(SPLIT_PART(CAM04.RECORD_DATA['account'],':',4) AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "account_id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP(CAM04.RECORD_DATA['changeAuditStamps']['created']['time']::VARCHAR)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "created_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP(CAM04.RECORD_DATA['changeAuditStamps']['lastModified']['time']::VARCHAR)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "updated_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                }
+              ],
+              "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN",
+              "schemaName": "TARGET",
+              "tableName": "DIM_AD_GROUP_OMNATA_LINKEDIN",
+              "type": "target"
+            },
+            {
+              "alias": "CAM05",
+              "columns": [
+                {
+                  "columnName": "AD_GROUP_ID",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "PLATFORM_ID",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "CAMPAIGN_ID",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "DATE",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "IMPRESSIONS",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "CLICKS",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "SPEND",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "CURRENCY_KEY",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "TIMEZONE",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "ACCOUNT_NAME",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "ACCOUNT_STATUS",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "ACCOUNT_CREATED_AT",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "ACCOUNT_UPDATED_AT",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "BUSINESS_COUNTRY_CODE",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "PLATFORM_NAME",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "AD_GROUP_NAME",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "CAMPAIGN_NAME",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "DATE_START_CAMPAIGN",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "DATE_END_CAMPAIGN",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "CAMPAIGN_STATUS",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "VARCHAR",
+                  "type": "VARCHAR"
+                },
+                {
+                  "columnName": "DAILY_BUDGET",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "LIFETIME_BUDGET",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "BUDGET_REMAINING",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "CAMPAIGN_CREATED_AT",
+                  "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                  "sqlType": "DATE",
+                  "type": "DATE"
+                }
+              ],
+              "databaseName": "<TARGET_DATABASE>",
+              "mappings": [
+                {
+                  "mapping": "ACC06.RECORD_DATA['name']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ACC06.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_STATUS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(ACC06.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_CREATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(ACC06.RECORD_DATA['changeAuditStamps']['lastModified']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_UPDATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ACC06.RECORD_DATA['currency']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CURRENCY_KEY",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(CAM04.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_CREATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['dailyBudget']['amount']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "DAILY_BUDGET",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_STATUS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.ID",
+                  "sources": [
+                    {
+                      "columnName": "ID",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_ID",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RETRIEVE_DATE",
+                  "sources": [
+                    {
+                      "columnName": "RETRIEVE_DATE",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "DATE",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "column"
+                },
+                {
+                  "displayValue": "linkedin",
+                  "mapping": "'linkedin'",
+                  "sources": [
+                    {
+                      "columnName": "NULL",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "PLATFORM_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "static"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['cardImpressions']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "IMPRESSIONS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['costInLocalCurrency']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "SPEND",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                }
+              ],
+              "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+              "schemaName": "TARGET",
+              "tableName": "CAMPAIGN_PERFORMANCE",
+              "type": "target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+      "schemas": [
+        {
+          "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+          "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+          "tables": [
+            {
+              "alias": "ADA03",
+              "columns": [
+                {
+                  "columnName": "RECORD_DATA",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                  "sqlType": "VARIANT",
+                  "type": "VARIANT"
+                },
+                {
+                  "columnName": "RUN_ID",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RETRIEVE_DATE",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                  "sqlType": "TIMESTAMP_NTZ",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "IS_DELETED",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                  "sqlType": "BOOLEAN",
+                  "type": "BOOLEAN"
+                },
+                {
+                  "columnName": "APP_IDENTIFIER",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                }
+              ],
+              "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+              "joins": [
+                {
+                  "from": {
+                    "alias": "CAM04",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "CAMPAIGNS"
+                  },
+                  "on": "REPLACE(ADA03.RECORD_DATA['campaign_group_id'],'\\\"\"','')  = CAM04.ID",
+                  "target": {
+                    "alias": "DIM03",
+                    "databaseName": "<TARGET_DATABASE>",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN",
+                    "schemaName": "TARGET",
+                    "tableName": "DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "to": {
+                    "alias": "ADA03",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                  },
+                  "type": "LEFT"
+                }
+              ],
+              "mappings": [
+                {
+                  "mapping": "ADA03.RECORD_DATA['campaign_id']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CONCAT('Campaign_', REPLACE(ADA03.RECORD_DATA['campaign_id'],'\\\"\"',''))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "campaign_name",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp(ADA03.RECORD_DATA['start_date'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "date_start",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(ADA03.RECORD_DATA['end_date'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "date_end",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['cardImpressions']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "IMPRESSIONS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['costInLocalCurrency']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "SPEND",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                }
+              ],
+              "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+              "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+              "tableName": "AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+              "type": "source"
+            },
+            {
+              "alias": "CAM04",
+              "columns": [
+                {
+                  "columnName": "ID",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RECORD_DATA",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                  "sqlType": "VARIANT",
+                  "type": "VARIANT"
+                },
+                {
+                  "columnName": "APP_IDENTIFIER",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RUN_ID",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RETRIEVE_DATE",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                  "sqlType": "TIMESTAMP_NTZ",
+                  "type": "DATE"
+                }
+              ],
+              "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+              "joins": [
+                {
+                  "from": {
+                    "alias": "ADA03",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                  },
+                  "on": "CAM04.APP_IDENTIFIER = ADA03.APP_IDENTIFIER",
+                  "target": {
+                    "alias": "CAM05",
+                    "databaseName": "<TARGET_DATABASE>",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                    "schemaName": "TARGET",
+                    "tableName": "CAMPAIGN_PERFORMANCE"
+                  },
+                  "to": {
+                    "alias": "CAM04",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "CAMPAIGNS"
+                  },
+                  "type": "LEFT"
+                }
+              ],
+              "mappings": [
+                {
+                  "mapping": "CAST(CAM04.RECORD_DATA['dailyBudget']['amount'] AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "daily_budget",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "status",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(CAM04.RECORD_DATA['changeAuditStamps']['lastModified']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "updated_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "to_timestamp_ntz(CAM04.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "created_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_CAMPAIGN_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.APP_IDENTIFIER",
+                  "sources": [
+                    {
+                      "columnName": "APP_IDENTIFIER",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "column"
+                },
+                {
+                  "mapping": "REPLACE(CAM04.RECORD_DATA['name'],'','')",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ad_group_name",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAST(SPLIT_PART(CAM04.RECORD_DATA['campaignGroup'],':',4) AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "campaign_id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAST(SPLIT_PART(CAM04.RECORD_DATA['account'],':',4) AS INT)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "account_id",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP(CAM04.RECORD_DATA['changeAuditStamps']['created']['time']::VARCHAR)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "created_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP(CAM04.RECORD_DATA['changeAuditStamps']['lastModified']['time']::VARCHAR)",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "updated_at",
+                    "object": "<TARGET_DATABASE>.TARGET.DIM_AD_GROUP_OMNATA_LINKEDIN"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(CAM04.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_CREATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['dailyBudget']['amount']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "DAILY_BUDGET",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_STATUS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.ID",
+                  "sources": [
+                    {
+                      "columnName": "ID",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_ID",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "CAM04.RETRIEVE_DATE",
+                  "sources": [
+                    {
+                      "columnName": "RETRIEVE_DATE",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "DATE",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "column"
+                }
+              ],
+              "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+              "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+              "tableName": "CAMPAIGNS",
+              "type": "source"
+            },
+            {
+              "alias": "ACC06",
+              "columns": [
+                {
+                  "columnName": "APP_IDENTIFIER",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RETRIEVE_DATE",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                  "sqlType": "TIMESTAMP_NTZ",
+                  "type": "DATE"
+                },
+                {
+                  "columnName": "IS_DELETED",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                  "sqlType": "BOOLEAN",
+                  "type": "BOOLEAN"
+                },
+                {
+                  "columnName": "ID",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                  "sqlType": "NUMBER",
+                  "type": "NUMBER"
+                },
+                {
+                  "columnName": "RECORD_DATA",
+                  "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                  "sqlType": "VARIANT",
+                  "type": "VARIANT"
+                }
+              ],
+              "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+              "joins": [
+                {
+                  "from": {
+                    "alias": "CAM04",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "CAMPAIGNS"
+                  },
+                  "on": "ACC06.APP_IDENTIFIER = SPLIT_PART(CAM04.RECORD_DATA['account'],':',4)",
+                  "target": {
+                    "alias": "CAM05",
+                    "databaseName": "<TARGET_DATABASE>",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE",
+                    "schemaName": "TARGET",
+                    "tableName": "CAMPAIGN_PERFORMANCE"
+                  },
+                  "to": {
+                    "alias": "ACC06",
+                    "databaseName": "<SOURCE_DATABASE_OMNATA_LINKEDIN>",
+                    "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+                    "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+                    "tableName": "ACCOUNTS"
+                  },
+                  "type": "LEFT"
+                }
+              ],
+              "mappings": [
+                {
+                  "mapping": "ACC06.RECORD_DATA['name']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ACC06.RECORD_DATA['status']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_STATUS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(ACC06.RECORD_DATA['changeAuditStamps']['created']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_CREATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "TO_TIMESTAMP_NTZ(ACC06.RECORD_DATA['changeAuditStamps']['lastModified']['time'])",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "ACCOUNT_UPDATED_AT",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ACC06.RECORD_DATA['currency']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CURRENCY_KEY",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                }
+              ],
+              "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.ACCOUNTS",
+              "schemaName": "<SOURCE_SCHEMA_OMNATA_LINKEDIN>",
+              "tableName": "ACCOUNTS",
+              "type": "source"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "id": 3,
+  "name": "StandardizeModelLinkedinOmnata"
+}
