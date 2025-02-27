@@ -126,12 +126,12 @@ export const StandardUnifiedDataModelMock: StandardMappingModel = {
       definitions: [
         {
           columns: [
-            'ADS04.ADSET_SOURCE_ID',
-            'ADS04.NAME',
-            'ADS04.CAMPAIGN_ID',
-            'ADS04.ACCOUNT_ID',
-            'ADS04.CREATED_TIME',
-            'ADS04.UPDATED_TIME',
+            'ADS10.ADSET_SOURCE_ID',
+            'ADS10.NAME',
+            'ADS10.CAMPAIGN_ID',
+            'ADS10.ACCOUNT_ID',
+            'ADS10.CREATED_TIME',
+            'ADS10.UPDATED_TIME',
           ],
           source: {
             alias: 'ADS10',
@@ -273,8 +273,8 @@ export const StandardUnifiedDataModelMock: StandardMappingModel = {
             'ACC07.TIMEZONE_NAME',
             'NULL',
             'BAS06.ACCOUNT_ID',
-            'ADS04.CAMPAIGN_ID',
-            'ADS04.ID',
+            'ADS10.CAMPAIGN_ID',
+            'ADS10.ID',
             'ACC07.CURRENCY',
             'BAS06.IMPRESSIONS',
             'BAS06.INLINE_LINK_CLICKS',
@@ -293,8 +293,8 @@ export const StandardUnifiedDataModelMock: StandardMappingModel = {
               qualify: 'row_number() over (partition by id order by _fivetran_synced desc) = 1',
             },
             {
-              alias: 'ADS04',
-              on: 'BAS06.AD_ID = ADS04.ID',
+              alias: 'ADS10',
+              on: 'BAS06.AD_ID = ADS10.ID',
               object: '<SOURCE_DATABASE_FIVETRAN_FACEBOOK>.<SOURCE_SCHEMA_FIVETRAN_FACEBOOK>.AD_SET_HISTORY',
               type: JoinTypes.LEFT,
               qualify: 'row_number() over (partition by id order by TO_TIMESTAMP_NTZ(UPDATED_TIME) desc) = 1',
