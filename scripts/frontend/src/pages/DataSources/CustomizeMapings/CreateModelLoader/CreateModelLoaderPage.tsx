@@ -110,6 +110,7 @@ export default function CreateModelLoaderPage(props: Props) {
           )}
 
           {/* Tables created sucessfully */}
+          {console.log('createdProcess', createdProcess)}
           {createdProcess.length > 0 && (
             <Box className={`${styles.tableContainer} ${styles.createdContainer}`}>
               <Subtitle1>{t('TablesSuccessfullyCreated')}</Subtitle1>
@@ -118,6 +119,7 @@ export default function CreateModelLoaderPage(props: Props) {
           )}
 
           {/* Tables updated sucessfully */}
+          {console.log('updatedProcess', updatedProcess)}
           {updatedProcess.length > 0 && (
             <Box className={`${styles.tableContainer} ${styles.updatedContainer}`}>
               <Subtitle1>{t('TablesSuccessfullyUpdated')}</Subtitle1>
@@ -126,6 +128,7 @@ export default function CreateModelLoaderPage(props: Props) {
           )}
 
           {/* Tables deleted sucessfully */}
+          {console.log('deletedProcess', deletedProcess)}
           {deletedProcess.length > 0 && (
             <Box className={`${styles.tableContainer} ${styles.deletedContainer}`}>
               <Subtitle1>{t('TablesSuccessfullyDeleted')}</Subtitle1>
@@ -134,6 +137,7 @@ export default function CreateModelLoaderPage(props: Props) {
           )}
 
           {/* Tables with errors */}
+          {console.log('errorProcess', errorProcess)}
           {errorProcess.length > 0 && (
             <Box className={`${styles.tableContainer} ${styles.errorContainer}`}>
               <Subtitle1>{t('TablesWithErrors')}</Subtitle1>
