@@ -234,7 +234,7 @@
               "databaseName": "<TARGET_DATABASE>",
               "mappings": [
                 {
-                  "mapping": "ADS10.NAME",
+                  "mapping": "ADS04.NAME",
                   "sources": [
                     {
                       "columnName": "NAME",
@@ -248,7 +248,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.ADSET_SOURCE_ID",
+                  "mapping": "ADS04.ADSET_SOURCE_ID",
                   "sources": [
                     {
                       "columnName": "ADSET_SOURCE_ID",
@@ -262,7 +262,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.CAMPAIGN_ID",
+                  "mapping": "ADS04.CAMPAIGN_ID",
                   "sources": [
                     {
                       "columnName": "CAMPAIGN_ID",
@@ -276,7 +276,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.ACCOUNT_ID",
+                  "mapping": "ADS04.ACCOUNT_ID",
                   "sources": [
                     {
                       "columnName": "ACCOUNT_ID",
@@ -290,7 +290,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.CREATED_TIME",
+                  "mapping": "ADS04.CREATED_TIME",
                   "sources": [
                     {
                       "columnName": "CREATED_TIME",
@@ -304,7 +304,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.UPDATED_TIME",
+                  "mapping": "ADS04.UPDATED_TIME",
                   "sources": [
                     {
                       "columnName": "UPDATED_TIME",
@@ -610,7 +610,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.CAMPAIGN_ID",
+                  "mapping": "ADS04.CAMPAIGN_ID",
                   "sources": [
                     {
                       "columnName": "CAMPAIGN_ID",
@@ -624,7 +624,7 @@
                   "type": "column"
                 },
                 {
-                  "mapping": "ADS10.ID",
+                  "mapping": "ADS04.ID",
                   "sources": [
                     {
                       "columnName": "ID",
@@ -2340,13 +2340,13 @@
                 },
                 {
                   "from": {
-                    "alias": "ADS10",
+                    "alias": "ADS04",
                     "databaseName": "<SOURCE_DATABASE_FIVETRAN_FACEBOOK>",
                     "object": "<SOURCE_DATABASE_FIVETRAN_FACEBOOK>.<SOURCE_SCHEMA_FIVETRAN_FACEBOOK>.AD_SET_HISTORY",
                     "schemaName": "<SOURCE_SCHEMA_FIVETRAN_FACEBOOK>",
                     "tableName": "AD_SET_HISTORY"
                   },
-                  "on": "BAS06.AD_ID = ADS10.ID",
+                  "on": "BAS06.AD_ID = ADS04.ID",
                   "qualify": "row_number() over (partition by id order by TO_TIMESTAMP_NTZ(UPDATED_TIME) desc) = 1",
                   "target": {
                     "alias": "MET09",
