@@ -1,5 +1,5 @@
 {
-  "account_registry": "sfsenorthamerica-joviane-demo.registry.snowflakecomputing.com",
+  "account_registry": "<account_registry>.registry.snowflakecomputing.com",
 
   "database": "MARKETING_DATA_FOUNDATION_V3",
   "schema": "METADATA",
