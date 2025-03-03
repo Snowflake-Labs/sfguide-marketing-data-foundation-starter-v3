@@ -1,0 +1,47 @@
+@import '../../../../styles/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 72px);
+}
+
+.headerContainer {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .buttonCreateTable {
+    width: fit-content;
+  }
+}
+
+.contentContainer {
+  padding-top: 24px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+
+  .selectContainer {
+    width: 100%;
+    overflow: auto;
+    margin-top: 24px;
+  }
+}
+
+.listItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background-color: $mp-sidebar-selected-color;
+  border-radius: 4px;
+  border: 1px solid $mp-row-border-color !important;
+
+}

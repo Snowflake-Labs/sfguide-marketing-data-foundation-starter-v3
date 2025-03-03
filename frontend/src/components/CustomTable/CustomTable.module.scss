@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+
+div.tableContainer {
+    border-radius: $border-radius;
+    max-width: 100%;
+    min-width: 200px;
+    white-space: nowrap;
+    box-shadow: none;
+}

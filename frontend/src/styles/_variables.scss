@@ -1,0 +1,117 @@
+$color-white: #fff;
+$color-black: #000;
+$border-radius: 4px;
+$border: 1px solid;
+$success: #0E9C73;
+$info: #1A6CE7;
+$error: #D3132F;
+$color-secondary: #5d6a85;
+$icon-color: $color-secondary;
+$static-mappings: #FFF0DE;
+$variable-mappings: #EFE8FF;
+
+// Sidebar
+$sb-arrow-color: $color-white;
+$sb-color: #8a96ad;
+$sb-selected-background: #1a2a43;
+$sb-selected-color: $color-white;
+$sb-hover-background: #122138;
+$sb-hover-color: #8a96ad;
+
+// Data Source Section
+$ds-table-header: #f3f6fa;
+$ds-icon: #9fabc1;
+$ds-button: #050f1c;
+$ds-search-bar-border: #0000003b;
+$ds-delete-button: #d3132f;
+
+
+
+// Mappings
+$mp-border-color: #9fabc199;
+$mp-table-border-color: #050f1c;
+$mp-row-border-color: #5f84cd;
+$mp-height-aprox-top: 340px;
+$mp-sidebar-hover-color: #f3f6fa;
+$mp-sidebar-hover-border-color: #5F84CD;
+$mp-sidebar-selected-color: #f3f6fa;
+$mp-sidebar-selected-border-color: #050f1c;
+
+// Source card
+$outline-resting-state: #7285aa;
+$accordion-background: #f8fbff;
+$outline-hover-state: #5f84cd;
+$background-hover-state: #eef1f6;
+
+// Footer
+$footer-border-color: #9fabc199;
+$footer-height: 68px;
+
+// Chips
+$chips-color: #F5F5F5;
+$chips-label-color: #1e252fde;
+$chips-hover-color: #bfc5cf;
+
+//Sql code
+$sql-code-container-background: #f0f2f6;
+$sql-code-border: #0000003b;
+
+// Mappings Editor
+$node-row-border: #0000001f;
+$node-row-border-hover: $color-secondary;
+$node-row-border-editing: #050F1C;
+$node-header-base-bg: #f3f6fa;
+$node-header-target-bg: #f1f7e7;
+$node-header-source-bg: #e7eef7;
+$node-box-shadow: #00000033;
+$help-button-background: #EBEBEB;
+
+// Column Types
+$column-type-varchar: #bdf8e9;
+$column-type-number: #d6e6ff;
+$column-type-boolean: #ffd1dc;
+$column-type-variant: #e1d6ff;
+$column-type-date: #dfffc0;
+$column-type-null: #ffe2cf;
+
+// Spinner
+$spinner-color: #9FABC1;
+
+// Mapping Types
+$mapping-type-column: #fffcc0;
+$mapping-type-static: #bdf8e9;
+$mapping-type-variable: #dfffc0;
+$mapping-type-formula: #f2cdff;
+
+// Data Explorer Table
+$header-background: #cfd6e2;
+
+// AI Assistant
+$add-assistant: #1e252f;
+$add-assistant-background: #b0bbd0;
+$add-assistant-hover: #7488a2;
+
+$assistant-card-border: #7285aa;
+$assistant-card-background: #eef1f6;
+
+$chatbar-background: #f3f6fa;
+$chatbar-label: #808495;
+$chatbar-icon: $icon-color;
+$chatbar-icon: #5d6a85;
+
+$assistant-delete: #d3132f;
+$assistant-rename: #050f1c;
+
+$existing-assistant-background: #2d405e;
+$assistant-sidebar-background: #1a2a43;
+$assistant-conversation-background: #f3f6fa;
+
+//Create mapping set
+
+$mapping-set-create: #050f1c;
+$existing-assistant-background: #2D405E;
+$assistant-sidebar-background: #1A2A43;
+$assistant-conversation-background: #F3F6FA;
+
+$disabled-button: #9FABC1;
+$close-preview-button: #dcdee2;
