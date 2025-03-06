@@ -62,13 +62,17 @@ export default function CreateModelLoaderPage(props: Props) {
   };
 
   const handleProcessFinish = () => {
+    // console.log('inside handleProcessFinish');
     setInProgress(false);
+    // console.log('setInProgress set to False');
   };
 
   const handleProcessUpdate = (args: any) => {
+    // console.log('inside handleProcessUpdate');
     setStatusLabel(
       t('ProgressExecutingModel', { tableName: `${args[args.length - 1].name} (${args[args.length - 1].index})` })
     );
+    // console.log('after setStatusLabel');
   };
 
   const footer = (
@@ -88,17 +92,25 @@ export default function CreateModelLoaderPage(props: Props) {
   }, [inProgress]);
 
   useEffect(() => {
+    // console.log('location.state?.inProgress before if statement', location.state?.inProgress);
     if (location.state?.inProgress) {
+      // console.log('inside if statement');
       setInProgress(true);
+      // console.log('setInProgress set to True');
       window.history.replaceState({}, '');
+      // console.log('after window.history.replaceState');
     } else {
+      // console.log('inside else statement');
       handleGetModelProcess();
+      // console.log('after handleGetModelProcess');
     }
   }, [location]);
 
   useEffect(() => {
+    // console.log('inside useEffect, before lines 108 and 109');
     pubSubService.subscribeToEvent(EventData.Process.UpdateProgress, 'loader-page', handleProcessUpdate);
     pubSubService.subscribeToEvent(EventData.Process.Message, 'loader-page', handleProcessFinish);
+    // console.log('inside useEffect, after lines 108 and 109');
   }, []);
 
   return (
