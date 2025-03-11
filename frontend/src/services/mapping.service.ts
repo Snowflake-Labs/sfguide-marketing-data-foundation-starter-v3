@@ -8,7 +8,7 @@ import { StandardMappingModel } from 'dtos/StandardMappingModel';
 import { ProcessDefinition } from 'dtos/Process';
 import { ModelStatus } from 'dtos/ModelStatus';
 import { ProcessStatus } from 'dtos/ProcessStatus';
-import { ProcessProgress } from 'dtos/ProcessProgress';
+import { ProcessProgress, ProcessProgressStatus } from 'dtos/ProcessProgress';
 
 @injectable()
 export class MappingService implements IMappingService {
@@ -19,8 +19,16 @@ export class MappingService implements IMappingService {
     if (!modelId) return Promise.reject('Model ID is required');
     const url = `${getHost()}/api/mappings/${modelId}`;
     const response = await this.requestsService.post(url, '');
-    const result = await response.json();
-    return response.ok ? result : Promise.reject(result);
+    try {
+      const result = await response.json();
+      return response.ok ? result : Promise.reject(result);
+    } catch (error) {
+      return [{
+        status: 'Error',
+        status_code: ProcessProgressStatus.Error,
+        message: "Something went wrong. Please verify if your tables have been created.",
+        name: '',}];
+    }
   }
 
   async updateDataModel(modelId: number, model: Model): Promise<void> {
