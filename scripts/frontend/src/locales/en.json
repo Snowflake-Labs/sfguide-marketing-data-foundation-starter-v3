@@ -169,7 +169,7 @@
   "AddTransformation": "Add transformation",
   "RenameYourAssistant": "Rename your assistant",
   "DeleteAssistantConfirmation": "Are you sure you want to delete your assistant {assistantName}?",
-  "TextChatBotWelcome": "Hello I am your Cortex AI assistant!. How can I help you?",
+  "TextChatBotWelcome": "Hello I am your Cortex AI assistant! How can I help you?",
   "CouldNotGetResponse": "Your assistant could not get a response. Please try again.",
   "AssistantIsTyping": "Cortex AI assistant is typing...",
   "TargetColumn": "Target column",
