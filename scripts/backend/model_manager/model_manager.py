@@ -392,12 +392,30 @@ def run_process(process_id: int) -> ProcessResult:
         else:
             run_id = 1
 
+        # Get process information including model_id
         process_df = pd.DataFrame(
             sp_session.sql(
-                f"""SELECT {PROCESS_ATTRIBUTES_COL} FROM {APPLICATION}.METADATA.PROCESSES WHERE PROCESS_ID = {process_id}"""
+                f"""SELECT {PROCESS_ATTRIBUTES_COL}, {MODEL_ID_COL} FROM {APPLICATION}.METADATA.PROCESSES WHERE PROCESS_ID = {process_id}"""
             ).collect()
         )
         attributes = json.loads(process_df.iloc[0, 0])
+        model_id = process_df.iloc[0, 1]
+        
+        # Get target database and schema from the model to replace placeholders
+        if model_id:
+            model_df = pd.DataFrame(
+                sp_session.sql(
+                    f"""SELECT TARGET_DATABASE, TARGET_SCHEMA FROM {APPLICATION}.METADATA.MODELS WHERE MODEL_ID = {model_id}"""
+                ).collect()
+            )
+            if len(model_df) > 0:
+                target_database = model_df.iloc[0, 0]
+                target_schema = model_df.iloc[0, 1]
+                
+                # Replace TARGET_DATABASE placeholder in attributes
+                from services.process import replace_string_in_dict
+                attributes = replace_string_in_dict(attributes, "<TARGET_DATABASE>", target_database)
+        
         table_name = attributes["target"]["object"]
 
         process_type_id = attributes[PROCESS_TYPE_ID_KEY]
