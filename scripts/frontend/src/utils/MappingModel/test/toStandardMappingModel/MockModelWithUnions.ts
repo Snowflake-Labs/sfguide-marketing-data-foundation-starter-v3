@@ -149,7 +149,7 @@ export const StandardMappingModelMockWithUnions: StandardMappingModel = {
           { name: 'number_column2', type: 'NUMBER' },
         ],
       },
-      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'XSMALL_WH' },
+      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'MDFSV3SPCS_BUILD_WH' },
       definitions: [
         {
           columns: ['number_column', 'NULL'],
