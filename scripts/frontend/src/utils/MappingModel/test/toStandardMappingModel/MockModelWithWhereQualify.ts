@@ -161,7 +161,7 @@ export const StandardMappingModelMockWithWhereQualify: StandardMappingModel = {
       settings: {
         target_interval: 'hours',
         target_lag: 24,
-        warehouse: 'MDFSV3SPCS_BUILD_WH',
+        warehouse: 'MDFSV3SPCS_XSMALL_WH',
       },
       target: {
         alias: 'TAB01',

@@ -274,7 +274,7 @@ export const StandardMappingModelMockComplex: StandardMappingModel = {
       labels: ['label1'],
       process_name: 'table01',
       process_type_id: 1,
-      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'MDFSV3SPCS_BUILD_WH' },
+      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'MDFSV3SPCS_XSMALL_WH' },
       target: {
         alias: 'TAB01',
         object: 'database01.schema01.table01',
@@ -332,7 +332,7 @@ export const StandardMappingModelMockComplex: StandardMappingModel = {
       labels: ['label1'],
       process_name: 'table02',
       process_type_id: 1,
-      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'MDFSV3SPCS_BUILD_WH' },
+      settings: { target_interval: 'hours', target_lag: 24, warehouse: 'MDFSV3SPCS_XSMALL_WH' },
       target: {
         alias: 'TAB02',
         object: 'database01.schema01.table02',

@@ -39,7 +39,7 @@ export function targetTableToProcessAttributes(table: TableModel, model: ModelUI
     settings: {
       target_interval: table.targetLag?.timeUnit ?? 'hours',
       target_lag: table.targetLag?.number ?? 24,
-      warehouse: 'MDFSV3SPCS_BUILD_WH',
+      warehouse: 'MDFSV3SPCS_XSMALL_WH',
     },
     definitions: getProcessDefinitionsInTargetTable(table, model),
   };
