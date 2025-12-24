@@ -39,7 +39,7 @@ export function targetTableToProcessAttributes(table: TableModel, model: ModelUI
     settings: {
       target_interval: table.targetLag?.timeUnit ?? 'hours',
       target_lag: table.targetLag?.number ?? 24,
-      warehouse: 'MDFSV3SPCS_XSMALL_WH',
+      warehouse: 'MDFSV3SPCS_WH',
     },
     definitions: getProcessDefinitionsInTargetTable(table, model),
   };
@@ -60,8 +60,15 @@ function getProcessDefinitionsInTargetTable(targetTable: TableModel, modelUI: Mo
     index: number
   ): TableModel | undefined => {
     const tableTo = joinModel.to;
+    // First check noJoinTableRecord (tables without joins)
     const table = noJoinTableRecord[tableTo.object];
     if (table) return table;
+    
+    // FIX: Fall back to tableRecord for tables that have their own joins
+    // This handles cases where all source tables have joins defined
+    const tableFromRecord = tableRecord[tableTo.object];
+    if (tableFromRecord) return tableFromRecord;
+    
     const nextJoin = currentJoinValues[index + 1];
     if (!nextJoin) return;
     return getSourceTable(nextJoin, currentJoinValues, index + 1);
@@ -147,10 +154,23 @@ function getProcessDefinitionsInTargetTable(targetTable: TableModel, modelUI: Mo
       }
 
       if (!mainTable) continue;
+      
+      // First check if there's an existing process for this mainTable
       if (processes[mainTable.object]) {
         updateProcessColumns(processes[mainTable.object], target, mapping);
       } else {
-        saveProcessDefinition(mainTable, target, mapping);
+        // FIX: Check if mainTable is already a JOIN in any existing process
+        // If so, update that process instead of creating a new one (avoids multiple SELECTs with UNION)
+        const existingProcessKey = Object.keys(processes).find(key => {
+          const proc = processes[key];
+          return proc.join?.some(j => j.object === mainTable!.object);
+        });
+        
+        if (existingProcessKey) {
+          updateProcessColumns(processes[existingProcessKey], target, mapping);
+        } else {
+          saveProcessDefinition(mainTable, target, mapping);
+        }
       }
     }
   }

@@ -17,8 +17,12 @@ export default function Conversation() {
     const image = selectedAssistant?.type.toLowerCase() || "";
     const { updateChat } = useAIAssistantContext();
 
+    const recommendedQuestion = selectedAssistant?.type === 'DataEngineering' 
+        ? t('RecommendedQuestionsDataEngineering') 
+        : t('RecommendedQuestionsCortexCopilot');
+
     function onClick() {
-        updateChat(t('RecommendedQuestions'));
+        updateChat(recommendedQuestion);
     }
 
     return (
@@ -28,13 +32,7 @@ export default function Conversation() {
                     <ListItem className={styles.listItem}>
                         <Image image_name={c.role === 'user' ? c.role : image} image_height={32} image_width={32} />
                         <div>
-                            { c.error ? (
-                                <div className={styles.text}>
-                                    <CustomMarkdown>
-                                        {t('CouldNotGetResponse')}
-                                    </CustomMarkdown>
-                                </div>
-                            ) : 
+                            { c.error ? null : 
                             ( conversationLoading && i === chat.length - 1) ? 
                             ( <WaitDots loading={conversationLoading}></WaitDots> ) : 
                             ( <div>
@@ -61,7 +59,7 @@ export default function Conversation() {
             ))}
             {chat.length <= 1 && (
                 <Button className={styles.questions} onClick={onClick}>
-                    {t('RecommendedQuestions')}
+                    {recommendedQuestion}
                 </Button>
             )}
         </List>

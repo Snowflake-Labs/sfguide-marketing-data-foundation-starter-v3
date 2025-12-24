@@ -65,27 +65,40 @@ export default function C360Dashboard(props: DashboardProps) {
   useEffect(() => {
     if (!props.database || !props.schema) return;
     setLoading(true);
-    DataExplorerServices.get_webinar_data(props.database, props.schema).then((data) => {
-      setWebinarData(data);
+    
+    // Use Promise.allSettled to handle all API calls properly
+    // This ensures loading stops even if some calls fail
+    Promise.allSettled([
+      DataExplorerServices.get_webinar_data(props.database, props.schema)
+        .then((data) => setWebinarData(data))
+        .catch((error) => console.error('Error loading webinar data:', error)),
+      
+      DataExplorerServices.get_status_counts(props.database, props.schema)
+        .then((data) => setStatusCount(data))
+        .catch((error) => console.error('Error loading status counts:', error)),
+      
+      DataExplorerServices.get_customers_overview(props.database, props.schema, 500)
+        .then((data) => setCustomersOverview(data))
+        .catch((error) => console.error('Error loading customers overview:', error)),
+      
+      DataExplorerServices.get_country_group(props.database, props.schema)
+        .then((data) => setGeoGroup(data))
+        .catch((error) => console.error('Error loading country group:', error)),
+      
+      DataExplorerServices.get_purchase_time(props.database, props.schema)
+        .then((data) => setPurchaseTime(data))
+        .catch((error) => console.error('Error loading purchase time:', error)),
+      
+      DataExplorerServices.get_device_type(props.database, props.schema)
+        .then((data) => setDeviceType(data))
+        .catch((error) => console.error('Error loading device type:', error)),
+      
+      DataExplorerServices.get_browser_type(props.database, props.schema)
+        .then((data) => setBrowserType(data))
+        .catch((error) => console.error('Error loading browser type:', error)),
+    ]).finally(() => {
+      // Always stop loading after all calls complete (success or failure)
       setLoading(false);
-    });
-    DataExplorerServices.get_status_counts(props.database, props.schema).then((data) => {
-      setStatusCount(data);
-    });
-    DataExplorerServices.get_customers_overview(props.database, props.schema, 500).then((data) => {
-      setCustomersOverview(data);
-    });
-    DataExplorerServices.get_country_group(props.database, props.schema).then((data) => {
-      setGeoGroup(data);
-    });
-    DataExplorerServices.get_purchase_time(props.database, props.schema).then((data) => {
-      setPurchaseTime(data);
-    });
-    DataExplorerServices.get_device_type(props.database, props.schema).then((data) => {
-      setDeviceType(data);
-    });
-    DataExplorerServices.get_browser_type(props.database, props.schema).then((data) => {
-      setBrowserType(data);
     });
   }, [props.schema]);
 
