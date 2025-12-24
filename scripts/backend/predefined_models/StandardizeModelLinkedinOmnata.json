@@ -606,18 +606,18 @@
                   "type": "formula"
                 },
                 {
-                  "mapping": "CAM04.RETRIEVE_DATE",
+                  "mapping": "TO_DATE(ADA03.RECORD_DATA['start_date'])",
                   "sources": [
                     {
-                      "columnName": "RETRIEVE_DATE",
-                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
                     }
                   ],
                   "target": {
                     "columnName": "DATE",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
-                  "type": "column"
+                  "type": "formula"
                 },
                 {
                   "displayValue": "linkedin",
@@ -635,7 +635,7 @@
                   "type": "static"
                 },
                 {
-                  "mapping": "ADA03.RECORD_DATA['cardImpressions']",
+                  "mapping": "ADA03.RECORD_DATA['impressions']",
                   "sources": [
                     {
                       "columnName": "RECORD_DATA",
@@ -644,6 +644,20 @@
                   ],
                   "target": {
                     "columnName": "IMPRESSIONS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['clicks']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CLICKS",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
                   "type": "formula"
@@ -658,6 +672,34 @@
                   ],
                   "target": {
                     "columnName": "SPEND",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "COALESCE(REPLACE(CAM04.RECORD_DATA['name'],'\"',''), CONCAT('Campaign_', ADA03.RECORD_DATA['campaign_id']))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "COALESCE(REPLACE(CAM04.RECORD_DATA['name'],'\"',''), CONCAT('Ad_Group_', CAM04.APP_IDENTIFIER))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "AD_GROUP_NAME",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
                   "type": "formula"
@@ -799,7 +841,7 @@
                   "type": "formula"
                 },
                 {
-                  "mapping": "ADA03.RECORD_DATA['cardImpressions']",
+                  "mapping": "ADA03.RECORD_DATA['impressions']",
                   "sources": [
                     {
                       "columnName": "RECORD_DATA",
@@ -808,6 +850,20 @@
                   ],
                   "target": {
                     "columnName": "IMPRESSIONS",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "ADA03.RECORD_DATA['clicks']",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CLICKS",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
                   "type": "formula"
@@ -822,6 +878,34 @@
                   ],
                   "target": {
                     "columnName": "SPEND",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "COALESCE(REPLACE(CAM04.RECORD_DATA['name'],'\"',''), CONCAT('Campaign_', ADA03.RECORD_DATA['campaign_id']))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "CAMPAIGN_NAME",
+                    "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
+                  },
+                  "type": "formula"
+                },
+                {
+                  "mapping": "COALESCE(REPLACE(CAM04.RECORD_DATA['name'],'\"',''), CONCAT('Ad_Group_', CAM04.APP_IDENTIFIER))",
+                  "sources": [
+                    {
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                    }
+                  ],
+                  "target": {
+                    "columnName": "AD_GROUP_NAME",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
                   "type": "formula"
@@ -1092,18 +1176,18 @@
                   "type": "formula"
                 },
                 {
-                  "mapping": "CAM04.RETRIEVE_DATE",
+                  "mapping": "TO_DATE(ADA03.RECORD_DATA['start_date'])",
                   "sources": [
                     {
-                      "columnName": "RETRIEVE_DATE",
-                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS"
+                      "columnName": "RECORD_DATA",
+                      "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.AD_ANALYTICS_BY_CAMPAIGN_DAILY"
                     }
                   ],
                   "target": {
                     "columnName": "DATE",
                     "object": "<TARGET_DATABASE>.TARGET.CAMPAIGN_PERFORMANCE"
                   },
-                  "type": "column"
+                  "type": "formula"
                 }
               ],
               "object": "<SOURCE_DATABASE_OMNATA_LINKEDIN>.<SOURCE_SCHEMA_OMNATA_LINKEDIN>.CAMPAIGNS",
