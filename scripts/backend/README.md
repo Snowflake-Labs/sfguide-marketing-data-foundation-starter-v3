@@ -1,7 +1,7 @@
 ## Set up application backend environment
 
 ```
-python3.9 -m venv backend_env
+python3.11 -m venv backend_env
 source backend_env/bin/activate
 pip install -r requirements.txt
 ```
@@ -21,7 +21,7 @@ gunicorn -b :8081 api:app --reload --timeout 90
 
 ```
 cd backend
-python3.9 -m venv backend_testing  
+python3.11 -m venv backend_testing  
 source backend_testing/bin/activate
 pip install -r requirements_test.txt
 
