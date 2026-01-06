@@ -33,10 +33,8 @@ def assistant_table(sp_session) -> Table:
     return sp_session.table([LLM_SCHEMA, ASSISTANT_TABLE])
 
 def chat_complete(sp_session, prompt:str, id:str, context_file:str):
-    assistant_instance =  CortexComplete(sp_session)
-    type = get_assistant_type(sp_session, id)
-    if type == LLMType.CortexCopilot:
-        assistant_instance = CortexCopilot(sp_session)
+    # Both assistant types now use CortexCopilot for consistent formatting
+    assistant_instance = CortexCopilot(sp_session)
     assistant_instance.set_context_file(context_file)
     chat_history = get_messages(sp_session, id)
     message = Message(role='user', text=prompt)

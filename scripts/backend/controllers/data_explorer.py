@@ -235,7 +235,8 @@ def get_combined_metrics():
                         .withColumn(MONTH_COLUMN, month(DATE_COLUMN))\
                         .withColumn(YEAR_COLUMN, year(DATE_COLUMN))\
                         .withColumn(SORT_DATE_COLUMN, to_date(concat(col(YEAR_COLUMN), lit("-"), col(MONTH_COLUMN)), "yyyy-MM"))\
-                        .group_by([col(CAMPAIGN_NAME_COL)]).agg(round_(sum_(col(SPEND_COLUMN))/ sum_(col(CLICKS_COLUMN)), 2).alias(SPEND_PER_CLICK))\
+                        .group_by([col(CAMPAIGN_NAME_COL)]).agg(sum_(col(SPEND_COLUMN)).alias(SPEND_COLUMN), sum_(col(CLICKS_COLUMN)).alias(CLICKS_COLUMN))\
+                        .withColumn(SPEND_PER_CLICK, iff(col(CLICKS_COLUMN)== lit(0), lit(0), round_(col(SPEND_COLUMN) / col(CLICKS_COLUMN), 2)))\
                         .orderBy(col(SPEND_PER_CLICK), ascending=False)\
                         .limit(5) 
     data = []
